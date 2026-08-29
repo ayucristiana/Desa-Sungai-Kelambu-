@@ -44,30 +44,27 @@ a {
    NAVBAR
 ========================= */
 
+/* =========================
+   NAVBAR
+========================= */
+
 header {
     position: fixed;
-
     top: 0;
     left: 0;
-
     width: 100%;
-
     z-index: 1000;
 }
 
-
 .navbar {
     width: 100%;
-
-    padding: 18px 7%;
+    padding: 20px 7%;
 
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
 
-    background: rgba(248, 245, 237, 0.94);
+    background: rgba(248, 245, 237, 0.96);
 
     backdrop-filter: blur(12px);
 
@@ -76,38 +73,48 @@ header {
 }
 
 
+/* LOGO */
+
 .logo {
     font-family:
         'Playfair Display',
         serif;
 
-    font-size: 23px;
+    font-size: 25px;
 
     font-weight: 700;
 
     color: #2f593c;
+
+    white-space: nowrap;
 }
 
+
+/* MENU */
 
 .nav-menu {
     display: flex;
 
     list-style: none;
 
-    gap: 25px;
+    align-items: center;
+
+    gap: 32px;
 }
 
 
 .nav-menu a {
     color: #39493e;
 
-    font-size: 13px;
+    font-size: 15px;
 
     font-weight: 600;
 
     transition: 0.3s;
 
     position: relative;
+
+    white-space: nowrap;
 }
 
 
@@ -117,12 +124,14 @@ header {
 }
 
 
+/* GARIS MENU AKTIF */
+
 .nav-menu a.active::after {
     content: '';
 
     position: absolute;
 
-    bottom: -7px;
+    bottom: -8px;
 
     left: 0;
 
@@ -131,8 +140,12 @@ header {
     height: 2px;
 
     background: #477951;
+
+    border-radius: 5px;
 }
 
+
+/* TOMBOL MENU HP */
 
 .menu-toggle {
     display: none;
@@ -141,14 +154,14 @@ header {
 
     background: transparent;
 
-    font-size: 25px;
+    font-size: 30px;
 
     cursor: pointer;
 
     color: #2f593c;
+
+    padding: 4px;
 }
-
-
 /* =========================
    HERO
 ========================= */
