@@ -1,387 +1,288 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Desa Sungai Kelambu</title>
+    <title>Pesona Desa Sungai Kelambu</title>
 
     <link rel="stylesheet" href="css/style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
 
-<header class="header">
-    <div class="container nav-container">
+<header>
+    <nav class="navbar">
 
-        <a href="index.html" class="logo">
-            <span class="logo-icon">
-                <i class="fa-solid fa-leaf"></i>
-            </span>
-
-            <span>
-                <strong>Desa Sungai Kelambu</strong>
-                <small>Kecamatan Tebas</small>
-            </span>
-        </a>
+        <div class="logo">
+            🌿 Sungai Kelambu
+        </div>
 
         <button class="menu-toggle" id="menuToggle">
-            <i class="fa-solid fa-bars"></i>
+            ☰
         </button>
 
-        <nav class="navbar" id="navbar">
-            <a href="index.html" class="active">Beranda</a>
-            <a href="profil.html">Profil</a>
-            <a href="fasilitas.html">Fasilitas</a>
-            <a href="keindahan.html">Keindahan</a>
-            <a href="budaya.html">Budaya</a>
-            <a href="masyarakat.html">Masyarakat</a>
-            <a href="potensi.html">Potensi</a>
-            <a href="galeri.html">Galeri</a>
-            <a href="lokasi.html">Lokasi</a>
-        </nav>
+        <ul class="nav-menu" id="navMenu">
 
-    </div>
+            <li>
+                <a href="index.html" class="active">
+                    Beranda
+                </a>
+            </li>
+
+            <li>
+                <a href="tentang.html">
+                    Tentang Desa
+                </a>
+            </li>
+
+            <li>
+                <a href="alam.html">
+                    Keindahan Alam
+                </a>
+            </li>
+
+            <li>
+                <a href="fasilitas.html">
+                    Fasilitas Desa
+                </a>
+            </li>
+
+            <li>
+                <a href="budaya.html">
+                    Budaya
+                </a>
+            </li>
+
+            <li>
+                <a href="galeri.html">
+                    Galeri
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
 </header>
 
 
 <main>
 
-<section class="hero">
+    <!-- HERO -->
 
-    <div class="hero-overlay"></div>
+    <section class="hero">
 
-    <div class="container hero-content">
+        <div class="hero-content">
 
-        <span class="eyebrow">
-            KABUPATEN SAMBAS • KALIMANTAN BARAT
-        </span>
+            <p class="subtitle">
+                SELAMAT DATANG DI
+            </p>
 
-        <h1>
-            Selamat Datang di<br>
-            <span>Desa Sungai Kelambu</span>
-        </h1>
-
-        <p>
-            Mengenal lebih dekat keindahan alam, kehidupan masyarakat,
-            budaya, fasilitas, dan potensi Desa Sungai Kelambu,
-            Kecamatan Tebas, Kabupaten Sambas.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="profil.html" class="btn btn-primary">
-                Jelajahi Desa
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
-            <a href="galeri.html" class="btn btn-outline">
-                <i class="fa-regular fa-images"></i>
-                Lihat Galeri
-            </a>
-        </div>
-
-    </div>
-
-    <div class="hero-scroll">
-        <i class="fa-solid fa-chevron-down"></i>
-    </div>
-
-</section>
-
-
-<section class="section intro-section">
-
-    <div class="container">
-
-        <div class="section-heading center">
-            <span class="section-label">TENTANG DESA</span>
-
-            <h2>
-                Mengenal <span>Sungai Kelambu</span>
-            </h2>
+            <h1>
+                Pesona Desa
+                <br>
+                <span>Sungai Kelambu</span>
+            </h1>
 
             <p>
-                Sebuah desa di Kecamatan Tebas, Kabupaten Sambas,
-                yang memiliki kehidupan masyarakat, lingkungan,
-                pendidikan, fasilitas, serta budaya yang menjadi
-                bagian dari identitas daerah.
+                Menjelajahi keindahan alam, budaya,
+                fasilitas, dan kehidupan masyarakat
+                Desa Sungai Kelambu.
             </p>
+
+            <a href="tentang.html" class="btn">
+                Jelajahi Desa →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <p>
+                KENALI LEBIH DEKAT
+            </p>
+
+            <h2>
+                Keindahan Sungai Kelambu
+            </h2>
+
         </div>
 
 
-        <div class="intro-grid">
+        <div class="intro">
 
             <div class="intro-image">
-                <img src="img/desa.jpg" alt="Desa Sungai Kelambu">
 
-                <div class="image-badge">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <div>
-                        <strong>Sungai Kelambu</strong>
-                        <small>Kecamatan Tebas</small>
-                    </div>
-                </div>
+                <img
+                    src="img/desa1.jpg"
+                    alt="Desa Sungai Kelambu"
+                >
+
             </div>
 
 
             <div class="intro-text">
 
-                <span class="section-label">MARI BERKENALAN</span>
-
                 <h3>
-                    Desa yang tumbuh bersama
-                    masyarakatnya.
+                    Desa yang Penuh Pesona
                 </h3>
 
                 <p>
-                    Desa Sungai Kelambu merupakan salah satu desa
-                    yang berada di Kecamatan Tebas, Kabupaten Sambas,
-                    Provinsi Kalimantan Barat.
+                    Desa Sungai Kelambu merupakan desa
+                    yang memiliki suasana kehidupan
+                    masyarakat yang khas dengan lingkungan
+                    pedesaan.
                 </p>
 
                 <p>
-                    Website ini dibuat sebagai media informasi dan
-                    pengenalan desa agar masyarakat maupun pengunjung
-                    dapat mengenal lingkungan, fasilitas, budaya,
-                    masyarakat, dan potensi yang ada di Desa Sungai Kelambu.
+                    Keindahan alam, aktivitas masyarakat,
+                    fasilitas umum, serta kehidupan sosial
+                    menjadi bagian yang menarik untuk
+                    dikenalkan.
                 </p>
 
-                <a href="profil.html" class="text-link">
-                    Selengkapnya tentang desa
-                    <i class="fa-solid fa-arrow-right"></i>
+                <a href="tentang.html" class="text-link">
+                    Selengkapnya →
                 </a>
 
             </div>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<section class="section features-section">
+    <!-- FITUR -->
 
-    <div class="container">
+    <section class="features">
 
-        <div class="section-heading center">
+        <div class="section-title">
 
-            <span class="section-label">YANG ADA DI DESA</span>
+            <p>
+                YANG BISA DITEMUKAN
+            </p>
 
             <h2>
-                Mengenal Desa Lebih <span>Dekat</span>
+                Pesona Desa Sungai Kelambu
             </h2>
 
         </div>
 
 
-        <div class="feature-grid">
+        <div class="card-container">
 
-            <a href="keindahan.html" class="feature-card">
+            <div class="card">
 
-                <div class="feature-icon">
-                    <i class="fa-solid fa-tree"></i>
+                <div class="card-icon">
+                    🌳
                 </div>
 
-                <h3>Keindahan Alam</h3>
+                <h3>
+                    Alam
+                </h3>
 
                 <p>
-                    Lingkungan pedesaan, sungai, pepohonan,
-                    dan suasana yang asri.
+                    Menikmati suasana alam dan lingkungan
+                    pedesaan yang asri.
                 </p>
 
-            </a>
+            </div>
 
 
-            <a href="budaya.html" class="feature-card">
+            <div class="card">
 
-                <div class="feature-icon">
-                    <i class="fa-solid fa-people-group"></i>
+                <div class="card-icon">
+                    🏫
                 </div>
 
-                <h3>Budaya</h3>
+                <h3>
+                    Fasilitas
+                </h3>
 
                 <p>
-                    Mengenal Saprahan, Belarak, Bepapas,
-                    dan berbagai tradisi masyarakat.
+                    Mengenal berbagai fasilitas yang
+                    mendukung kehidupan masyarakat.
                 </p>
 
-            </a>
+            </div>
 
 
-            <a href="fasilitas.html" class="feature-card">
+            <div class="card">
 
-                <div class="feature-icon">
-                    <i class="fa-solid fa-building"></i>
+                <div class="card-icon">
+                    🎭
                 </div>
 
-                <h3>Fasilitas</h3>
+                <h3>
+                    Budaya
+                </h3>
 
                 <p>
-                    Informasi fasilitas pendidikan,
-                    kesehatan, keagamaan, dan pelayanan.
+                    Mengenal tradisi, kegiatan, dan
+                    kehidupan masyarakat desa.
                 </p>
 
-            </a>
-
-
-            <a href="potensi.html" class="feature-card">
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-seedling"></i>
-                </div>
-
-                <h3>Potensi Desa</h3>
-
-                <p>
-                    Potensi pertanian, sumber daya alam,
-                    UMKM, dan masyarakat.
-                </p>
-
-            </a>
+            </div>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<section class="quote-section">
+    <!-- CTA -->
 
-    <div class="container quote-content">
-
-        <i class="fa-solid fa-quote-left quote-icon"></i>
+    <section class="cta">
 
         <h2>
-            “Desa bukan hanya tempat tinggal,
-            tetapi tempat tumbuhnya cerita,
-            budaya, dan kebersamaan.”
+            Mari Mengenal Sungai Kelambu
         </h2>
 
-        <span>— Desa Sungai Kelambu</span>
+        <p>
+            Temukan keindahan alam dan kehidupan
+            masyarakat Desa Sungai Kelambu.
+        </p>
 
-    </div>
+        <a href="galeri.html" class="btn btn-light">
+            Lihat Galeri
+        </a>
 
-</section>
-
-
-<section class="section quick-section">
-
-    <div class="container">
-
-        <div class="quick-grid">
-
-            <div class="quick-item">
-                <i class="fa-solid fa-map-location-dot"></i>
-
-                <div>
-                    <strong>Lokasi</strong>
-                    <span>Desa Sungai Kelambu</span>
-                </div>
-            </div>
-
-
-            <div class="quick-item">
-                <i class="fa-solid fa-location-dot"></i>
-
-                <div>
-                    <strong>Kecamatan</strong>
-                    <span>Tebas</span>
-                </div>
-            </div>
-
-
-            <div class="quick-item">
-                <i class="fa-solid fa-city"></i>
-
-                <div>
-                    <strong>Kabupaten</strong>
-                    <span>Sambas</span>
-                </div>
-            </div>
-
-
-            <div class="quick-item">
-                <i class="fa-solid fa-tree-city"></i>
-
-                <div>
-                    <strong>Provinsi</strong>
-                    <span>Kalimantan Barat</span>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
+    </section>
 
 </main>
 
 
-<footer class="footer">
+<footer>
 
-    <div class="container footer-grid">
+    <div class="footer-content">
 
-        <div>
-            <div class="footer-logo">
-                <i class="fa-solid fa-leaf"></i>
-                Desa Sungai Kelambu
-            </div>
+        <h3>
+            🌿 Pesona Desa Sungai Kelambu
+        </h3>
 
-            <p>
-                Website informasi dan pengenalan
-                Desa Sungai Kelambu, Kecamatan Tebas,
-                Kabupaten Sambas.
-            </p>
-        </div>
+        <p>
+            Website informasi dan pengenalan
+            keindahan Desa Sungai Kelambu.
+        </p>
 
+        <p class="copyright">
+            © <span id="year"></span>
+            Pesona Sungai Kelambu
+        </p>
 
-        <div>
-            <h4>Menu</h4>
-
-            <a href="profil.html">Profil Desa</a>
-            <a href="fasilitas.html">Fasilitas</a>
-            <a href="budaya.html">Budaya</a>
-            <a href="potensi.html">Potensi</a>
-        </div>
-
-
-        <div>
-            <h4>Jelajahi</h4>
-
-            <a href="keindahan.html">Keindahan</a>
-            <a href="masyarakat.html">Masyarakat</a>
-            <a href="galeri.html">Galeri</a>
-            <a href="lokasi.html">Lokasi</a>
-        </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-        <div class="container">
-            © <span id="year"></span> Desa Sungai Kelambu.
-            Dibuat untuk memperkenalkan keindahan desa.
-        </div>
     </div>
 
 </footer>
 
 
-<button id="backToTop" class="back-top">
-    <i class="fa-solid fa-arrow-up"></i>
-</button>
-
 <script src="js/script.js"></script>
 
 </body>
-  </html>
+</html>
