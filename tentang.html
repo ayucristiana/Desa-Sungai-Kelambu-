@@ -2,12 +2,10 @@
 <html lang="id">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tentang Desa | Desa Sungai Kelambu</title>
+    <title>Tentang Desa | Sungai Kelambu</title>
 
     <meta name="description"
         content="Mengenal Desa Sungai Kelambu, Kecamatan Tebas, Kabupaten Sambas, Kalimantan Barat.">
@@ -15,16 +13,399 @@
     <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
         rel="stylesheet">
 
-    <link
-        rel="stylesheet"
+    <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        /* =========================
+           KHUSUS HALAMAN TENTANG
+        ========================= */
+
+        .about-hero {
+            min-height: 62vh;
+            padding: 150px 8% 90px;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    #294b34 0%,
+                    #3d6548 55%,
+                    #52745a 100%
+                );
+            color: white;
+        }
+
+        .about-hero-content {
+            max-width: 760px;
+        }
+
+        .about-label {
+            display: inline-block;
+            margin-bottom: 16px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #dce8d5;
+        }
+
+        .about-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(44px, 7vw, 76px);
+            line-height: 1.08;
+            margin-bottom: 22px;
+        }
+
+        .about-hero h1 span {
+            color: #dce8c9;
+        }
+
+        .about-hero p {
+            max-width: 620px;
+            color: #e6eee3;
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           PROFIL
+        ========================= */
+
+        .profile-section {
+            padding: 100px 8%;
+        }
+
+        .profile-wrapper {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .profile-heading {
+            max-width: 720px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+
+        .profile-heading .small-title {
+            display: block;
+        }
+
+        .profile-heading h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(34px, 5vw, 50px);
+            line-height: 1.2;
+            color: #263d2d;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .profile-photo {
+            position: relative;
+        }
+
+        .profile-photo img {
+            height: 500px;
+            object-fit: cover;
+            border-radius: 22px;
+            box-shadow: 22px 22px 0 #dbe5d3;
+        }
+
+        .profile-text .small-title {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .profile-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            line-height: 1.2;
+            color: #294330;
+            margin-bottom: 22px;
+        }
+
+        .profile-text p {
+            color: #657168;
+            margin-bottom: 18px;
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           IDENTITAS
+        ========================= */
+
+        .identity-section {
+            padding: 100px 8%;
+            background: #edf1e7;
+        }
+
+        .identity-wrapper {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .identity-title {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 55px;
+        }
+
+        .identity-title .small-title {
+            display: block;
+        }
+
+        .identity-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 5vw, 48px);
+            color: #263d2d;
+            line-height: 1.2;
+        }
+
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .identity-card {
+            background: white;
+            padding: 32px 22px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            transition: 0.3s;
+        }
+
+        .identity-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .identity-icon {
+            width: 58px;
+            height: 58px;
+            margin: 0 auto 17px;
+            border-radius: 50%;
+            background: #e4ecdf;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #477951;
+            font-size: 22px;
+        }
+
+        .identity-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #294330;
+            margin-bottom: 7px;
+        }
+
+        .identity-card p {
+            color: #69736c;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           PETA
+        ========================= */
+
+        .map-section {
+            padding: 100px 8%;
+            background: #f8f5ed;
+        }
+
+        .map-wrapper {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .map-heading {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 45px;
+        }
+
+        .map-heading .small-title {
+            display: block;
+        }
+
+        .map-heading h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 5vw, 48px);
+            line-height: 1.2;
+            color: #263d2d;
+            margin-bottom: 12px;
+        }
+
+        .map-heading p {
+            color: #68736a;
+        }
+
+        .map-box {
+            overflow: hidden;
+            background: white;
+            padding: 10px;
+            border-radius: 22px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.07);
+        }
+
+        .map-box iframe {
+            width: 100%;
+            height: 430px;
+            border: 0;
+            border-radius: 16px;
+            display: block;
+        }
+
+        .map-button-wrapper {
+            text-align: center;
+            margin-top: 28px;
+        }
+
+
+        /* =========================
+           KEHIDUPAN
+        ========================= */
+
+        .life-section {
+            padding: 100px 8%;
+            background: #345b3e;
+            color: white;
+        }
+
+        .life-wrapper {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .life-heading {
+            max-width: 700px;
+            margin: 0 auto 55px;
+            text-align: center;
+        }
+
+        .life-heading .small-title {
+            display: block;
+            color: #d8e5c9;
+        }
+
+        .life-heading h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 5vw, 48px);
+            line-height: 1.2;
+        }
+
+        .life-heading p {
+            color: #dce8dc;
+            margin-top: 12px;
+        }
+
+        .life-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .life-card {
+            padding: 32px 24px;
+            background: rgba(255,255,255,0.09);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 18px;
+            text-align: center;
+        }
+
+        .life-card i {
+            font-size: 30px;
+            margin-bottom: 18px;
+            color: #d8e5c9;
+        }
+
+        .life-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .life-card p {
+            color: #d7e2d8;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .identity-grid,
+            .life-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .about-hero {
+                min-height: 70vh;
+                padding: 125px 7% 70px;
+            }
+
+            .about-hero h1 {
+                font-size: 44px;
+            }
+
+            .about-hero p {
+                font-size: 15px;
+            }
+
+            .profile-section,
+            .identity-section,
+            .map-section,
+            .life-section {
+                padding: 70px 6%;
+            }
+
+            .profile-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .profile-photo img {
+                height: 350px;
+                box-shadow: 12px 12px 0 #dbe5d3;
+            }
+
+            .profile-text h2 {
+                font-size: 34px;
+            }
+
+            .identity-grid,
+            .life-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .map-box iframe {
+                height: 330px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -90,428 +471,362 @@
 
 
 <!-- =========================
-     HEADER
+     HERO
 ========================= -->
 
-<section class="page-header">
+<section class="about-hero">
 
-    <div>
+    <div class="about-hero-content">
 
-        <p>
+        <span class="about-label">
             TENTANG DESA
-        </p>
-
-
-        <h1>
-            Mengenal Desa<br>
-            Sungai Kelambu
-        </h1>
-
-
-        <p>
-            Mengenal lebih dekat lokasi, lingkungan,
-            masyarakat, dan kehidupan Desa Sungai Kelambu.
-        </p>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     PROFIL DESA
-========================= -->
-
-<section class="section">
-
-
-    <div class="section-title">
-
-        <p>
-            PROFIL DESA
-        </p>
-
-
-        <h2>
-            Tentang Sungai Kelambu
-        </h2>
-
-    </div>
-
-
-
-    <div class="about-grid">
-
-
-        <!-- FOTO -->
-
-        <div>
-
-            <img
-                src="img/desa2.png"
-                alt="Pemandangan Desa Sungai Kelambu"
-                class="large-image">
-
-        </div>
-
-
-
-        <!-- TEKS -->
-
-        <div class="about-text">
-
-            <h2>
-                Mengenal Sungai Kelambu
-            </h2>
-
-
-            <p>
-                Desa Sungai Kelambu merupakan salah satu desa
-                yang berada di Kecamatan Tebas, Kabupaten Sambas,
-                Provinsi Kalimantan Barat.
-            </p>
-
-
-            <p>
-                Desa menjadi ruang bagi masyarakat untuk menjalani
-                berbagai aktivitas sehari-hari. Lingkungan sekitar,
-                kehidupan sosial, pendidikan, kegiatan keagamaan,
-                serta fasilitas desa menjadi bagian dari kehidupan
-                masyarakat.
-            </p>
-
-
-            <p>
-                Website ini dibuat untuk memperkenalkan Desa Sungai
-                Kelambu melalui informasi mengenai lokasi,
-                lingkungan, keindahan alam, fasilitas, budaya,
-                serta dokumentasi visual desa.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     LOKASI DESA
-========================= -->
-
-<section class="features">
-
-
-    <div class="section-title">
-
-        <p>
-            LOKASI DESA
-        </p>
-
-
-        <h2>
-            Lokasi Desa Sungai Kelambu
-        </h2>
-
-
-        <p>
-            Desa Sungai Kelambu berada di Kecamatan Tebas,
-            Kabupaten Sambas, Kalimantan Barat.
-        </p>
-
-    </div>
-
-
-
-    <div class="info-grid">
-
-
-        <div class="info-box">
-
-            <span>
-                <i class="fa-solid fa-location-dot"></i>
-            </span>
-
-            <h3>
-                Desa
-            </h3>
-
-            <p>
-                Sungai Kelambu
-            </p>
-
-        </div>
-
-
-
-        <div class="info-box">
-
-            <span>
-                <i class="fa-solid fa-map-location-dot"></i>
-            </span>
-
-            <h3>
-                Kecamatan
-            </h3>
-
-            <p>
-                Tebas
-            </p>
-
-        </div>
-
-
-
-        <div class="info-box">
-
-            <span>
-                <i class="fa-solid fa-map"></i>
-            </span>
-
-            <h3>
-                Kabupaten
-            </h3>
-
-            <p>
-                Sambas
-            </p>
-
-        </div>
-
-
-
-        <div class="info-box">
-
-            <span>
-                <i class="fa-solid fa-earth-asia"></i>
-            </span>
-
-            <h3>
-                Provinsi
-            </h3>
-
-            <p>
-                Kalimantan Barat
-            </p>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- PETA -->
-
-    <div
-        style="
-            max-width:1200px;
-            margin:50px auto 0;
-            background:white;
-            padding:12px;
-            border-radius:20px;
-            box-shadow:0 10px 30px rgba(0,0,0,0.05);
-        ">
-
-        <iframe
-            src="https://www.google.com/maps?q=Desa%20Sungai%20Kelambu%2C%20Tebas%2C%20Sambas%2C%20Kalimantan%20Barat&output=embed"
-            width="100%"
-            height="400"
-            style="
-                border:0;
-                border-radius:15px;
-                display:block;
-            "
-            allowfullscreen
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Peta lokasi Desa Sungai Kelambu">
-        </iframe>
-
-    </div>
-
-
-
-    <div
-        style="
-            text-align:center;
-            margin-top:25px;
-        ">
-
-        <a
-            href="https://www.google.com/maps/search/?api=1&query=Desa+Sungai+Kelambu,+Tebas,+Sambas,+Kalimantan+Barat"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn">
-
-            <i class="fa-solid fa-location-arrow"></i>
-
-            Buka di Google Maps
-
-        </a>
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =========================
-     GAMBARAN DESA
-========================= -->
-
-<section class="section">
-
-
-    <div class="section-title">
-
-        <p>
-            GAMBARAN DESA
-        </p>
-
-
-        <h2>
-            Kehidupan di Sungai Kelambu
-        </h2>
-
-
-        <p>
-            Lingkungan dan kehidupan masyarakat menjadi
-            bagian dari identitas desa.
-        </p>
-
-    </div>
-
-
-
-    <div class="info-grid">
-
-
-        <!-- LINGKUNGAN -->
-
-        <div class="info-box">
-
-            <span>
-                <i class="fa-solid fa-tree"></i>
-            </span>
-
-
-            <h3>
-                Lingkungan
-            </h3>
-
-
-            <p>
-                Lingkungan pedesaan menjadi bagian dari
-                kehidupan masyarakat dan memberikan suasana
-                yang dekat dengan alam.
-            </p>
-
-        </div>
-
-
-
-        <!-- MASYARAKAT -->
-
-        <div class="info-box">
-
-            <span>
-                <i class="fa-solid fa-people-group"></i>
-            </span>
-
-
-            <h3>
-                Masyarakat
-            </h3>
-
-
-            <p>
-                Kehidupan masyarakat tercermin melalui
-                aktivitas sosial dan berbagai kegiatan
-                kemasyarakatan.
-            </p>
-
-        </div>
-
-
-
-        <!-- KEHIDUPAN -->
-
-        <div class="info-box">
-
-            <span>
-                <i class="fa-solid fa-house"></i>
-            </span>
-
-
-            <h3>
-                Kehidupan Desa
-            </h3>
-
-
-            <p>
-                Aktivitas sehari-hari masyarakat menjadi
-                bagian dari kehidupan Desa Sungai Kelambu.
-            </p>
-
-        </div>
-
-
-
-        <!-- POTENSI -->
-
-        <div class="info-box">
-
-            <span>
-                <i class="fa-solid fa-seedling"></i>
-            </span>
-
-
-            <h3>
-                Potensi
-            </h3>
-
-
-            <p>
-                Lingkungan, masyarakat, dan berbagai kegiatan
-                desa menjadi bagian dari potensi yang dapat
-                terus dikembangkan.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     QUOTE
-========================= -->
-
-<section class="quote">
-
-    <div>
-
-        <span>
-            <i class="fa-solid fa-quote-left"></i>
         </span>
 
-
-        <h2>
-            Mengenal desa berarti mengenal
-            lingkungan dan kehidupan masyarakatnya.
-        </h2>
-
+        <h1>
+            Mengenal Desa
+            <span>Sungai Kelambu</span>
+        </h1>
 
         <p>
-            Website ini menjadi media untuk mengenalkan
-            Desa Sungai Kelambu melalui informasi,
-            cerita, dan dokumentasi visual.
+            Sebuah pengenalan singkat mengenai lokasi,
+            lingkungan, kehidupan masyarakat, dan potensi
+            Desa Sungai Kelambu.
         </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PROFIL
+========================= -->
+
+<section class="profile-section">
+
+    <div class="profile-wrapper">
+
+        <div class="profile-heading">
+
+            <span class="small-title">
+                PROFIL DESA
+            </span>
+
+            <h2>
+                Mengenal Sungai Kelambu Lebih Dekat
+            </h2>
+
+        </div>
+
+
+        <div class="profile-grid">
+
+
+            <div class="profile-photo">
+
+                <img
+                    src="img/desa2.png"
+                    alt="Pemandangan Desa Sungai Kelambu">
+
+            </div>
+
+
+            <div class="profile-text">
+
+                <span class="small-title">
+                    SUNGAI KELAMBU
+                </span>
+
+                <h2>
+                    Desa dan Kehidupan Masyarakatnya
+                </h2>
+
+                <p>
+                    Desa Sungai Kelambu merupakan salah satu
+                    desa yang berada di Kecamatan Tebas,
+                    Kabupaten Sambas, Provinsi Kalimantan Barat.
+                </p>
+
+                <p>
+                    Lingkungan desa menjadi bagian dari
+                    kehidupan masyarakat sehari-hari. Berbagai
+                    aktivitas sosial, pendidikan, keagamaan,
+                    serta kegiatan masyarakat berlangsung
+                    sebagai bagian dari kehidupan desa.
+                </p>
+
+                <p>
+                    Website ini dibuat untuk memperkenalkan
+                    Desa Sungai Kelambu melalui informasi
+                    mengenai lingkungan, keindahan alam,
+                    fasilitas, budaya, dan dokumentasi desa.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     IDENTITAS
+========================= -->
+
+<section class="identity-section">
+
+    <div class="identity-wrapper">
+
+        <div class="identity-title">
+
+            <span class="small-title">
+                IDENTITAS WILAYAH
+            </span>
+
+            <h2>
+                Lokasi Desa Sungai Kelambu
+            </h2>
+
+        </div>
+
+
+        <div class="identity-grid">
+
+
+            <div class="identity-card">
+
+                <div class="identity-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+
+                <h3>
+                    Desa
+                </h3>
+
+                <p>
+                    Sungai Kelambu
+                </p>
+
+            </div>
+
+
+            <div class="identity-card">
+
+                <div class="identity-icon">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                </div>
+
+                <h3>
+                    Kecamatan
+                </h3>
+
+                <p>
+                    Tebas
+                </p>
+
+            </div>
+
+
+            <div class="identity-card">
+
+                <div class="identity-icon">
+                    <i class="fa-solid fa-map"></i>
+                </div>
+
+                <h3>
+                    Kabupaten
+                </h3>
+
+                <p>
+                    Sambas
+                </p>
+
+            </div>
+
+
+            <div class="identity-card">
+
+                <div class="identity-icon">
+                    <i class="fa-solid fa-earth-asia"></i>
+                </div>
+
+                <h3>
+                    Provinsi
+                </h3>
+
+                <p>
+                    Kalimantan Barat
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PETA LOKASI
+========================= -->
+
+<section class="map-section">
+
+    <div class="map-wrapper">
+
+        <div class="map-heading">
+
+            <span class="small-title">
+                PETA LOKASI
+            </span>
+
+            <h2>
+                Temukan Desa Sungai Kelambu
+            </h2>
+
+            <p>
+                Desa Sungai Kelambu berada di Kecamatan Tebas,
+                Kabupaten Sambas, Kalimantan Barat.
+            </p>
+
+        </div>
+
+
+        <div class="map-box">
+
+            <iframe
+                src="https://www.google.com/maps?q=Desa%20Sungai%20Kelambu%2C%20Tebas%2C%20Sambas%2C%20Kalimantan%20Barat&output=embed"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Peta lokasi Desa Sungai Kelambu">
+            </iframe>
+
+        </div>
+
+
+        <div class="map-button-wrapper">
+
+            <a
+                href="https://www.google.com/maps/search/?api=1&query=Desa+Sungai+Kelambu,+Tebas,+Sambas,+Kalimantan+Barat"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn">
+
+                <i class="fa-solid fa-location-arrow"></i>
+
+                Buka di Google Maps
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     KEHIDUPAN DESA
+========================= -->
+
+<section class="life-section">
+
+    <div class="life-wrapper">
+
+        <div class="life-heading">
+
+            <span class="small-title">
+                KEHIDUPAN DESA
+            </span>
+
+            <h2>
+                Bagian dari Sungai Kelambu
+            </h2>
+
+            <p>
+                Lingkungan dan masyarakat menjadi bagian
+                penting dalam kehidupan desa.
+            </p>
+
+        </div>
+
+
+        <div class="life-grid">
+
+
+            <div class="life-card">
+
+                <i class="fa-solid fa-tree"></i>
+
+                <h3>
+                    Lingkungan
+                </h3>
+
+                <p>
+                    Lingkungan pedesaan menjadi bagian dari
+                    kehidupan masyarakat dan memberikan
+                    suasana yang dekat dengan alam.
+                </p>
+
+            </div>
+
+
+            <div class="life-card">
+
+                <i class="fa-solid fa-people-group"></i>
+
+                <h3>
+                    Masyarakat
+                </h3>
+
+                <p>
+                    Aktivitas sosial dan kehidupan masyarakat
+                    menjadi bagian dari perkembangan desa.
+                </p>
+
+            </div>
+
+
+            <div class="life-card">
+
+                <i class="fa-solid fa-house"></i>
+
+                <h3>
+                    Kehidupan
+                </h3>
+
+                <p>
+                    Berbagai aktivitas sehari-hari menjadi
+                    gambaran kehidupan masyarakat desa.
+                </p>
+
+            </div>
+
+
+            <div class="life-card">
+
+                <i class="fa-solid fa-seedling"></i>
+
+                <h3>
+                    Potensi
+                </h3>
+
+                <p>
+                    Lingkungan dan masyarakat merupakan bagian
+                    dari potensi yang dapat dikembangkan.
+                </p>
+
+            </div>
+
+        </div>
 
     </div>
 
@@ -527,17 +842,14 @@
 
     <div class="footer-content">
 
-
         <h3>
             Desa Sungai Kelambu
         </h3>
-
 
         <p>
             Kecamatan Tebas, Kabupaten Sambas,
             Kalimantan Barat.
         </p>
-
 
         <div class="copyright">
 
@@ -560,63 +872,60 @@
 
 <script>
 
-const menuToggle =
-    document.getElementById("menuToggle");
+    const menuToggle =
+        document.getElementById("menuToggle");
 
-const navMenu =
-    document.getElementById("navMenu");
-
-
-menuToggle.addEventListener("click", function () {
-
-    navMenu.classList.toggle("show");
+    const navMenu =
+        document.getElementById("navMenu");
 
 
-    const icon =
-        menuToggle.querySelector("i");
+    menuToggle.addEventListener("click", function () {
+
+        navMenu.classList.toggle("show");
+
+        const icon =
+            menuToggle.querySelector("i");
 
 
-    if (navMenu.classList.contains("show")) {
+        if (navMenu.classList.contains("show")) {
 
-        icon.classList.remove("fa-bars");
+            icon.classList.remove("fa-bars");
 
-        icon.classList.add("fa-xmark");
+            icon.classList.add("fa-xmark");
 
-    } else {
-
-        icon.classList.remove("fa-xmark");
-
-        icon.classList.add("fa-bars");
-
-    }
-
-});
-
-
-document
-    .querySelectorAll(".nav-menu a")
-    .forEach(function (link) {
-
-        link.addEventListener("click", function () {
-
-            navMenu.classList.remove("show");
-
-
-            const icon =
-                menuToggle.querySelector("i");
-
+        } else {
 
             icon.classList.remove("fa-xmark");
 
             icon.classList.add("fa-bars");
 
-        });
+        }
 
     });
+
+
+    document
+        .querySelectorAll(".nav-menu a")
+        .forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                navMenu.classList.remove("show");
+
+                const icon =
+                    menuToggle.querySelector("i");
+
+                icon.classList.remove("fa-xmark");
+
+                icon.classList.add("fa-bars");
+
+            });
+
+        });
 
 </script>
 
 
 </body>
 
-                </html>
+        </html>
