@@ -404,6 +404,146 @@
             }
 
         }
+        /* =========================
+   FIX NAVBAR & LOGO
+========================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.navbar {
+    width: 100%;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(248, 245, 237, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+}
+
+/* LOGO */
+.navbar .logo,
+.navbar .logo:visited,
+.navbar .logo:hover,
+.navbar .logo:active {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    font-weight: 700;
+    color: #2f593c !important;
+    text-decoration: none !important;
+    white-space: nowrap;
+}
+
+/* MENU */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a,
+.nav-menu a:visited {
+    color: #39493e !important;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none !important;
+}
+
+.nav-menu a:hover {
+    color: #477951 !important;
+}
+
+.nav-menu a.active {
+    color: #477951 !important;
+}
+
+/* GARIS MENU AKTIF */
+.nav-menu a.active::after {
+    background: #477951 !important;
+}
+
+/* TOMBOL HP */
+.menu-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    font-size: 30px;
+    cursor: pointer;
+    color: #2f593c !important;
+    padding: 4px;
+}
+
+/* =========================
+   NAVBAR MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 16px 6%;
+    }
+
+    .navbar .logo,
+    .navbar .logo:visited,
+    .navbar .logo:hover {
+        font-size: 20px;
+        color: #2f593c !important;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #f8f5ed;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 6%;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+
+    .nav-menu li {
+        padding: 12px 0;
+        border-bottom: 1px solid #e3e7df;
+    }
+
+    .nav-menu a,
+    .nav-menu a:visited {
+        display: block;
+        color: #39493e !important;
+        font-size: 14px;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+        color: #477951 !important;
+    }
+
+    .nav-menu a.active::after {
+        display: none;
+    }
+            }
 
     </style>
 
