@@ -1505,43 +1505,199 @@ footer {
 
         height: 280px;
     }
+/* =========================
+   TABLET
+========================= */
 
+@media (max-width: 1000px) {
 
-    .highlight-image img {
-
-        height: 320px;
+    .nav-menu {
+        gap: 15px;
     }
 
-
-    .page-header {
-
-        min-height: 60vh;
-
-        padding: 130px 7% 70px;
+    .nav-menu a {
+        font-size: 11px;
     }
 
-
-    .page-header h1 {
-
-        font-size: 42px;
+    .info-grid,
+    .culture-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
+    .facility-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-    .quote {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 17px 6%;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    /* TOMBOL HAMBURGER */
+    .menu-toggle {
+        display: block;
+        position: relative;
+        z-index: 1001;
+    }
+
+    /* MENU MOBILE */
+    .nav-menu {
+        position: absolute;
+
+        top: 70px;
+        left: 0;
+
+        width: 100%;
+
+        background: #f8f5ed;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 0;
+
+        padding: 10px 6%;
+
+        box-sizing: border-box;
+
+        box-shadow:
+            0 10px 20px rgba(0,0,0,0.08);
+
+        z-index: 1000;
+    }
+
+    /* SAAT MENU DIBUKA */
+    .nav-menu.active {
+        display: flex;
+    }
+
+    /* SEMUA LINK MENU */
+    .nav-menu a {
+        display: block;
+
+        width: 100%;
+
+        padding: 14px 0;
+
+        font-size: 15px;
+
+        border-bottom: 1px solid #e3e7df;
+
+        box-sizing: border-box;
+    }
+
+    /* HILANGKAN GARIS AKTIF DI HP */
+    .nav-menu a.active::after {
+        display: none;
+    }
+
+    /* HERO */
+    .hero {
+        padding: 120px 7% 70px;
+        min-height: 90vh;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .hero-content > p:not(.subtitle) {
+        font-size: 15px;
+    }
+
+    /* SECTION */
+    .section,
+    .features,
+    .contact-section {
         padding: 70px 6%;
     }
 
+    .section-title {
+        margin-bottom: 40px;
+    }
+
+    /* GRID */
+    .intro,
+    .about-grid,
+    .culture-highlight {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-image img,
+    .large-image {
+        height: 350px;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+
+    .info-grid,
+    .culture-grid,
+    .nature-grid,
+    .facility-grid,
+    .gallery,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nature-card img {
+        height: 250px;
+    }
+
+    .facility-image {
+        height: 250px;
+    }
+
+    .gallery-item {
+        height: 280px;
+    }
+
+    .highlight-image img {
+        height: 320px;
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+        min-height: 60vh;
+        padding: 130px 7% 70px;
+    }
+
+    .page-header h1 {
+        font-size: 42px;
+    }
+
+    /* QUOTE */
+    .quote {
+        padding: 70px 6%;
+    }
 
     .quote h2 {
-
         font-size: 30px;
     }
 
-
+    /* FOOTER */
     footer {
-
         padding: 50px 6%;
     }
 
-  }
+}
