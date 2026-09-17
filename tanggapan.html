@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Tanggapan - Desa Sungai Kelambu</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f5ed;
+      color: #27382c;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 7px;
+      font-weight: bold;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: inherit;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 13px;
+      border: none;
+      border-radius: 8px;
+      background: #27382c;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+    }
+
+    #hasil {
+      display: none;
+      margin-top: 20px;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .success {
+      background: #e3f3e7;
+      color: #245c35;
+    }
+
+    .error {
+      background: #f8dddd;
+      color: #8a2222;
+    }
+
+    .kembali {
+      display: block;
+      text-align: center;
+      margin-top: 18px;
+      color: #27382c;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Tanggapan Desa</h1>
+
+    <p class="subtitle">
+      Sampaikan tanggapan atau penilaian kamu terhadap pelayanan desa.
+    </p>
+
+    <form id="formTanggapan">
+
+      <label for="nama">Nama Lengkap</label>
+
+      <input
+        type="text"
+        id="nama"
+        placeholder="Masukkan nama lengkap"
+        required
+      >
+
+      <label for="no_hp">Nomor HP</label>
+
+      <input
+        type="tel"
+        id="no_hp"
+        placeholder="Contoh: 081234567890"
+        required
+      >
+
+      <label for="tanggapan">Tanggapan</label>
+
+      <textarea
+        id="tanggapan"
+        placeholder="Tuliskan tanggapan kamu..."
+        required
+      ></textarea>
+
+      <label for="rating">Rating Pelayanan</label>
+
+      <select id="rating" required>
+        <option value="">-- Pilih rating --</option>
+        <option value="5">5 - Sangat Baik</option>
+        <option value="4">4 - Baik</option>
+        <option value="3">3 - Cukup</option>
+        <option value="2">2 - Kurang</option>
+        <option value="1">1 - Sangat Kurang</option>
+      </select>
+
+      <button type="submit" id="btnKirim">
+        Kirim Tanggapan
+      </button>
+
+    </form>
+
+    <div id="hasil"></div>
+
+    <a href="index.html" class="kembali">
+      ← Kembali ke Beranda
+    </a>
+
+  </div>
+
+  <script>
+
+    const WEB_APP_URL =
+      "https://script.google.com/macros/s/AKfycbyBbMpn9j3wFj0_m0uogVlxXFHJ23mevm96pHdhTQSsWB-X-GkJCOsVTWWX-or5eYqn/exec";
+
+    const form = document.getElementById("formTanggapan");
+    const tombol = document.getElementById("btnKirim");
+    const hasil = document.getElementById("hasil");
+
+    form.addEventListener("submit", async function(event) {
+
+      event.preventDefault();
+
+      tombol.disabled = true;
+      tombol.textContent = "Mengirim...";
+
+      hasil.style.display = "none";
+
+      const data = {
+        type: "tanggapan",
+        nama: document.getElementById("nama").value.trim(),
+        no_hp: document.getElementById("no_hp").value.trim(),
+        tanggapan: document.getElementById("tanggapan").value.trim(),
+        rating: document.getElementById("rating").value
+      };
+
+      try {
+
+        await fetch(WEB_APP_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+          },
+          body: JSON.stringify(data)
+        });
+
+        hasil.className = "success";
+
+        hasil.textContent =
+          "Tanggapan berhasil dikirim. Terima kasih atas masukannya.";
+
+        hasil.style.display = "block";
+
+        form.reset();
+
+      } catch (error) {
+
+        hasil.className = "error";
+
+        hasil.textContent =
+          "Tanggapan gagal dikirim. Silakan coba lagi.";
+
+        hasil.style.display = "block";
+
+      }
+
+      tombol.disabled = false;
+      tombol.textContent = "Kirim Tanggapan";
+
+    });
+
+  </script>
+
+</body>
+  </html>
