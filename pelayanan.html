@@ -26,10 +26,6 @@
       min-height: 100vh;
     }
 
-    /* =========================
-       NAVBAR
-    ========================= */
-
     header {
       background: #27382c;
       padding: 0 20px;
@@ -88,10 +84,6 @@
       cursor: pointer;
     }
 
-    /* =========================
-       HERO
-    ========================= */
-
     .hero {
       background:
         linear-gradient(rgba(39,56,44,0.92), rgba(39,56,44,0.92)),
@@ -113,10 +105,6 @@
       color: #e8eee8;
     }
 
-    /* =========================
-       CONTAINER
-    ========================= */
-
     .container {
       max-width: 1100px;
       margin: 45px auto;
@@ -137,10 +125,6 @@
       color: #6d756e;
       font-size: 14px;
     }
-
-    /* =========================
-       SERVICE CARDS
-    ========================= */
 
     .layanan-grid {
       display: grid;
@@ -187,10 +171,6 @@
       line-height: 1.7;
     }
 
-    /* =========================
-       PANEL
-    ========================= */
-
     .panel {
       display: none;
       background: white;
@@ -217,10 +197,6 @@
       font-size: 13px;
       margin-bottom: 25px;
     }
-
-    /* =========================
-       FORM
-    ========================= */
 
     .form-group {
       margin-bottom: 17px;
@@ -282,20 +258,6 @@
       cursor: not-allowed;
     }
 
-    .btn-secondary {
-      background: #e9eee9;
-      color: #27382c;
-      margin-top: 10px;
-    }
-
-    .btn-secondary:hover {
-      background: #dce5dc;
-    }
-
-    /* =========================
-       HASIL
-    ========================= */
-
     .hasil {
       display: none;
       margin-top: 20px;
@@ -316,10 +278,6 @@
       background: #f8dddd;
       color: #8a2222;
     }
-
-    /* =========================
-       TOKEN
-    ========================= */
 
     .token-box {
       display: none;
@@ -356,10 +314,6 @@
       line-height: 1.6;
     }
 
-    /* =========================
-       STATUS
-    ========================= */
-
     .status-box {
       margin-top: 22px;
       padding: 20px;
@@ -391,11 +345,8 @@
       border: 1px solid #e1e6e1;
       line-height: 1.8;
       font-size: 13px;
+      white-space: pre-wrap;
     }
-
-    /* =========================
-       INFO ALUR
-    ========================= */
 
     .alur {
       margin-top: 40px;
@@ -446,10 +397,6 @@
       line-height: 1.6;
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
-
     footer {
       margin-top: 50px;
       background: #1d2921;
@@ -464,12 +411,7 @@
       margin-top: 5px;
     }
 
-    /* =========================
-       RESPONSIVE
-    ========================= */
-
     @media (max-width: 950px) {
-
       .layanan-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -489,7 +431,6 @@
     }
 
     @media (max-width: 700px) {
-
       header {
         padding: 0 15px;
       }
@@ -582,7 +523,6 @@
     }
 
     @media (max-width: 420px) {
-
       .layanan-grid {
         grid-template-columns: 1fr;
       }
@@ -595,10 +535,6 @@
 </head>
 
 <body>
-
-  <!-- =========================
-       NAVBAR
-  ========================= -->
 
   <header>
     <nav class="navbar">
@@ -626,11 +562,8 @@
   </header>
 
 
-  <!-- =========================
-       HERO
-  ========================= -->
-
   <section class="hero">
+
     <h1>Pelayanan Desa</h1>
 
     <p>
@@ -638,12 +571,9 @@
       Sampaikan pengaduan, cek status menggunakan token,
       lihat tanggapan desa, atau kirim pesan kepada pemerintah desa.
     </p>
+
   </section>
 
-
-  <!-- =========================
-       LAYANAN
-  ========================= -->
 
   <main class="container">
 
@@ -693,9 +623,7 @@
     </div>
 
 
-    <!-- =========================
-         PENGADUAN
-    ========================= -->
+    <!-- PENGADUAN -->
 
     <section class="panel active" id="panel-pengaduan">
 
@@ -705,10 +633,12 @@
         Silakan isi data pengaduan dengan lengkap dan benar.
       </p>
 
+
       <form id="formPengaduan">
 
         <div class="form-group">
           <label for="pengaduanNama">Nama Lengkap</label>
+
           <input
             type="text"
             id="pengaduanNama"
@@ -720,6 +650,7 @@
 
         <div class="form-group">
           <label for="pengaduanHp">Nomor HP</label>
+
           <input
             type="tel"
             id="pengaduanHp"
@@ -730,55 +661,101 @@
 
 
         <div class="form-group">
-          <label for="jenisPengaduan">Jenis Pengaduan</label>
+
+          <label for="jenisPengaduan">
+            Jenis Pengaduan
+          </label>
 
           <select id="jenisPengaduan" required>
-            <option value="">-- Pilih jenis pengaduan --</option>
-            <option value="Pelayanan Desa">Pelayanan Desa</option>
-            <option value="Administrasi">Administrasi</option>
-            <option value="Infrastruktur">Infrastruktur</option>
-            <option value="Fasilitas Umum">Fasilitas Umum</option>
-            <option value="Lingkungan">Lingkungan</option>
-            <option value="Sosial">Sosial</option>
-            <option value="Lainnya">Lainnya</option>
+
+            <option value="">
+              -- Pilih jenis pengaduan --
+            </option>
+
+            <option value="Pelayanan Desa">
+              Pelayanan Desa
+            </option>
+
+            <option value="Administrasi">
+              Administrasi
+            </option>
+
+            <option value="Infrastruktur">
+              Infrastruktur
+            </option>
+
+            <option value="Fasilitas Umum">
+              Fasilitas Umum
+            </option>
+
+            <option value="Lingkungan">
+              Lingkungan
+            </option>
+
+            <option value="Sosial">
+              Sosial
+            </option>
+
+            <option value="Lainnya">
+              Lainnya
+            </option>
+
           </select>
+
         </div>
 
 
         <div class="form-group">
-          <label for="isiPengaduan">Isi Pengaduan</label>
+
+          <label for="isiPengaduan">
+            Isi Pengaduan
+          </label>
 
           <textarea
             id="isiPengaduan"
             placeholder="Tuliskan pengaduan atau laporan kamu..."
             required
           ></textarea>
+
         </div>
 
 
-        <button type="submit" class="btn" id="btnPengaduan">
+        <button
+          type="submit"
+          class="btn"
+          id="btnPengaduan"
+        >
           Kirim Pengaduan
         </button>
 
       </form>
 
 
-      <div class="hasil" id="hasilPengaduan"></div>
+      <div
+        class="hasil"
+        id="hasilPengaduan"
+      ></div>
 
 
-      <div class="token-box" id="tokenHasil">
+      <div
+        class="token-box"
+        id="tokenHasil"
+      >
 
         <div class="token-label">
           Token Pengaduan Kamu
         </div>
 
-        <div class="token-code" id="tokenCode">
+        <div
+          class="token-code"
+          id="tokenCode"
+        >
           -
         </div>
 
         <div class="token-note">
           Simpan token ini dengan baik.
-          Token akan digunakan untuk mengecek status
+          Token digunakan untuk mengecek status
           dan tanggapan pengaduan.
         </div>
 
@@ -787,9 +764,7 @@
     </section>
 
 
-    <!-- =========================
-         TOKEN
-    ========================= -->
+    <!-- CEK TOKEN -->
 
     <section class="panel" id="panel-token">
 
@@ -809,7 +784,7 @@
         <input
           type="text"
           id="inputToken"
-          placeholder="Contoh: SKL-2026-8F42K"
+          placeholder="Contoh: SKL-2026-123456"
           autocomplete="off"
         >
 
@@ -825,16 +800,25 @@
       </button>
 
 
-      <div class="hasil" id="hasilToken"></div>
+      <div
+        class="hasil"
+        id="hasilToken"
+      ></div>
 
 
-      <div class="status-box" id="statusBox">
+      <div
+        class="status-box"
+        id="statusBox"
+      >
 
         <div class="status-title">
           Status Pengaduan
         </div>
 
-        <div class="status-value" id="statusValue">
+        <div
+          class="status-value"
+          id="statusValue"
+        >
           -
         </div>
 
@@ -843,7 +827,10 @@
           Tanggapan Desa
         </div>
 
-        <div class="tanggapan-box" id="isiTanggapan">
+        <div
+          class="tanggapan-box"
+          id="isiTanggapan"
+        >
           Belum ada tanggapan.
         </div>
 
@@ -852,17 +839,18 @@
     </section>
 
 
-    <!-- =========================
-         TANGGAPAN
-    ========================= -->
+    <!-- TANGGAPAN -->
 
-    <section class="panel" id="panel-tanggapan">
+    <section
+      class="panel"
+      id="panel-tanggapan"
+    >
 
       <h2>💬 Tanggapan Desa</h2>
 
       <p class="panel-description">
-        Tanggapan dari pihak desa terhadap pengaduan masyarakat
-        akan ditampilkan melalui token pengaduan.
+        Lihat tanggapan atau jawaban dari pihak desa
+        menggunakan token pengaduan.
       </p>
 
 
@@ -891,25 +879,38 @@
       </button>
 
 
-      <div class="hasil" id="hasilTanggapan"></div>
+      <div
+        class="hasil"
+        id="hasilTanggapan"
+      ></div>
 
 
-      <div class="status-box" id="tanggapanStatusBox">
+      <div
+        class="status-box"
+        id="tanggapanStatusBox"
+      >
 
         <div class="status-title">
           Status
         </div>
 
-        <div class="status-value" id="tanggapanStatus">
+        <div
+          class="status-value"
+          id="tanggapanStatus"
+        >
           -
         </div>
+
 
         <div class="status-title">
           Tanggapan Desa
         </div>
 
-        <div class="tanggapan-box" id="tanggapanIsi">
-          Belum ada tanggapan.
+        <div
+          class="tanggapan-box"
+          id="tanggapanIsi"
+        >
+          Belum ada tanggapan dari pihak desa.
         </div>
 
       </div>
@@ -917,16 +918,18 @@
     </section>
 
 
-    <!-- =========================
-         PESAN
-    ========================= -->
+    <!-- PESAN -->
 
-    <section class="panel" id="panel-pesan">
+    <section
+      class="panel"
+      id="panel-pesan"
+    >
 
       <h2>✉️ Kirim Pesan</h2>
 
       <p class="panel-description">
-        Kirim pertanyaan atau pesan kepada Pemerintah Desa Sungai Kelambu.
+        Kirim pertanyaan atau pesan kepada Pemerintah
+        Desa Sungai Kelambu.
       </p>
 
 
@@ -1021,14 +1024,15 @@
       </form>
 
 
-      <div class="hasil" id="hasilPesan"></div>
+      <div
+        class="hasil"
+        id="hasilPesan"
+      ></div>
 
     </section>
 
 
-    <!-- =========================
-         ALUR
-    ========================= -->
+    <!-- ALUR -->
 
     <section class="alur">
 
@@ -1102,10 +1106,6 @@
   </main>
 
 
-  <!-- =========================
-       FOOTER
-  ========================= -->
-
   <footer>
 
     <strong>Desa Sungai Kelambu</strong>
@@ -1121,19 +1121,19 @@
   </footer>
 
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
-
   <script>
 
+    // ==========================================
+    // URL WEB APP GOOGLE APPS SCRIPT BARU
+    // ==========================================
+
     const WEB_APP_URL =
-      "https://script.google.com/macros/s/AKfycbzz2BBMcvUVK8n-nMa-GVaCor0EFtIEMA3x-BrTFRZAvihe_GOnXpb_cQ7CGrRLLHNo/exec";
+      "https://script.google.com/macros/s/AKfycbxuL4Wg27aujlSoGK_Ri_8LyqFLc4-VGTIlu1lzl843vgg5rqgYzIJJZOOp5jO_mCtrPQ/exec";
 
 
-    /* =========================
-       MENU MOBILE
-    ========================= */
+    // ==========================================
+    // MENU MOBILE
+    // ==========================================
 
     const menuToggle =
       document.getElementById("menuToggle");
@@ -1142,31 +1142,40 @@
       document.getElementById("navMenu");
 
 
-    menuToggle.addEventListener("click", function() {
+    menuToggle.addEventListener(
+      "click",
+      function() {
 
-      navMenu.classList.toggle("show");
+        navMenu.classList.toggle("show");
 
-    });
+      }
+    );
 
 
-    /* =========================
-       BUKA PANEL
-    ========================= */
+    // ==========================================
+    // BUKA PANEL
+    // ==========================================
 
     function bukaPanel(namaPanel) {
 
       const panels =
         document.querySelectorAll(".panel");
 
-      panels.forEach(function(panel) {
 
-        panel.classList.remove("active");
+      panels.forEach(
+        function(panel) {
 
-      });
+          panel.classList.remove("active");
+
+        }
+      );
 
 
       const panelTujuan =
-        document.getElementById("panel-" + namaPanel);
+        document.getElementById(
+          "panel-" + namaPanel
+        );
+
 
       if (panelTujuan) {
 
@@ -1182,33 +1191,41 @@
     }
 
 
-    /* =========================
-       TOKEN SEMENTARA
-       AKAN DIGANTI BACKEND
-    ========================= */
+    // ==========================================
+    // MEMBUAT TOKEN
+    // ==========================================
 
     function buatToken() {
 
       const angka =
-        Math.random()
-          .toString(36)
-          .substring(2, 7)
-          .toUpperCase();
+        Math.floor(
+          100000 +
+          Math.random() * 900000
+        );
+
 
       const tahun =
         new Date().getFullYear();
 
-      return "SKL-" + tahun + "-" + angka;
+
+      return (
+        "SKL-" +
+        tahun +
+        "-" +
+        angka
+      );
 
     }
 
 
-    /* =========================
-       FORM PENGADUAN
-    ========================= */
+    // ==========================================
+    // PENGADUAN
+    // ==========================================
 
     const formPengaduan =
-      document.getElementById("formPengaduan");
+      document.getElementById(
+        "formPengaduan"
+      );
 
 
     formPengaduan.addEventListener(
@@ -1219,16 +1236,27 @@
 
 
         const tombol =
-          document.getElementById("btnPengaduan");
+          document.getElementById(
+            "btnPengaduan"
+          );
+
 
         const hasil =
-          document.getElementById("hasilPengaduan");
+          document.getElementById(
+            "hasilPengaduan"
+          );
+
 
         const tokenBox =
-          document.getElementById("tokenHasil");
+          document.getElementById(
+            "tokenHasil"
+          );
+
 
         const tokenCode =
-          document.getElementById("tokenCode");
+          document.getElementById(
+            "tokenCode"
+          );
 
 
         tombol.disabled = true;
@@ -1237,9 +1265,16 @@
           "Mengirim...";
 
 
-        hasil.className = "hasil";
+        hasil.className =
+          "hasil";
 
-        hasil.style.display = "none";
+        hasil.style.display =
+          "none";
+
+
+        tokenBox.classList.remove(
+          "show"
+        );
 
 
         const token =
@@ -1281,12 +1316,16 @@
             WEB_APP_URL,
             {
               method: "POST",
+
               mode: "no-cors",
+
               headers: {
                 "Content-Type":
                   "text/plain;charset=utf-8"
               },
-              body: JSON.stringify(data)
+
+              body:
+                JSON.stringify(data)
             }
           );
 
@@ -1296,7 +1335,6 @@
 
           hasil.textContent =
             "Pengaduan berhasil dikirim.";
-
 
           hasil.style.display =
             "block";
@@ -1315,6 +1353,9 @@
 
 
         } catch (error) {
+
+          console.error(error);
+
 
           hasil.className =
             "hasil error";
@@ -1338,25 +1379,29 @@
     );
 
 
-    /* =========================
-       CEK TOKEN
-    ========================= */
+    // ==========================================
+    // CEK TOKEN
+    // ==========================================
 
-    async function cekToken() {
+    function cekToken() {
 
       const input =
         document.getElementById(
           "inputToken"
         );
 
+
       const token =
-        input.value.trim();
+        input.value
+          .trim()
+          .toUpperCase();
 
 
       const hasil =
         document.getElementById(
           "hasilToken"
         );
+
 
       const statusBox =
         document.getElementById(
@@ -1375,6 +1420,7 @@
         hasil.style.display =
           "block";
 
+
         statusBox.classList.remove(
           "show"
         );
@@ -1384,50 +1430,118 @@
       }
 
 
-      /*
-        Backend pengecekan token
-        akan kita aktifkan pada tahap
-        berikutnya melalui Code.gs.
-      */
-
       hasil.className =
         "hasil success";
 
       hasil.textContent =
-        "Token diterima. Sistem sedang menyiapkan data status.";
+        "Sedang memeriksa token...";
 
       hasil.style.display =
         "block";
 
 
-      statusBox.classList.add(
+      statusBox.classList.remove(
         "show"
       );
 
 
-      document.getElementById(
-        "statusValue"
-      ).textContent =
-        "Menunggu diproses";
+      ambilDataToken(
+
+        token,
+
+        function(data) {
+
+          if (
+            !data ||
+            data.status !== "success"
+          ) {
+
+            hasil.className =
+              "hasil error";
+
+            hasil.textContent =
+              data.message ||
+              "Token tidak ditemukan.";
+
+            hasil.style.display =
+              "block";
 
 
-      document.getElementById(
-        "isiTanggapan"
-      ).textContent =
-        "Belum ada tanggapan dari pihak desa.";
+            statusBox.classList.remove(
+              "show"
+            );
+
+            return;
+
+          }
+
+
+          hasil.className =
+            "hasil success";
+
+          hasil.textContent =
+            "Token ditemukan.";
+
+          hasil.style.display =
+            "block";
+
+
+          document.getElementById(
+            "statusValue"
+          ).textContent =
+            data.data.status ||
+            "Menunggu";
+
+
+          document.getElementById(
+            "isiTanggapan"
+          ).textContent =
+            data.data.tanggapan ||
+            "Belum ada tanggapan dari pihak desa.";
+
+
+          statusBox.classList.add(
+            "show"
+          );
+
+        },
+
+        function() {
+
+          hasil.className =
+            "hasil error";
+
+          hasil.textContent =
+            "Gagal mengambil data. Silakan coba lagi.";
+
+          hasil.style.display =
+            "block";
+
+
+          statusBox.classList.remove(
+            "show"
+          );
+
+        }
+
+      );
+
     }
 
 
-    /* =========================
-       LIHAT TANGGAPAN
-    ========================= */
+    // ==========================================
+    // LIHAT TANGGAPAN
+    // ==========================================
 
     function lihatTanggapan() {
 
       const token =
         document.getElementById(
           "tokenTanggapan"
-        ).value.trim();
+        )
+        .value
+        .trim()
+        .toUpperCase();
 
 
       const hasil =
@@ -1453,6 +1567,7 @@
         hasil.style.display =
           "block";
 
+
         statusBox.classList.remove(
           "show"
         );
@@ -1466,34 +1581,226 @@
         "hasil success";
 
       hasil.textContent =
-        "Token ditemukan. Tanggapan akan ditampilkan setelah sistem terhubung dengan data desa.";
+        "Sedang mengambil tanggapan...";
 
       hasil.style.display =
         "block";
 
 
-      statusBox.classList.add(
+      statusBox.classList.remove(
         "show"
       );
 
 
-      document.getElementById(
-        "tanggapanStatus"
-      ).textContent =
-        "Menunggu diproses";
+      ambilDataToken(
+
+        token,
+
+        function(data) {
+
+          if (
+            !data ||
+            data.status !== "success"
+          ) {
+
+            hasil.className =
+              "hasil error";
+
+            hasil.textContent =
+              data.message ||
+              "Token tidak ditemukan.";
+
+            hasil.style.display =
+              "block";
 
 
-      document.getElementById(
-        "tanggapanIsi"
-      ).textContent =
-        "Belum ada tanggapan dari pihak desa.";
+            statusBox.classList.remove(
+              "show"
+            );
+
+            return;
+
+          }
+
+
+          hasil.className =
+            "hasil success";
+
+          hasil.textContent =
+            "Data pengaduan ditemukan.";
+
+          hasil.style.display =
+            "block";
+
+
+          document.getElementById(
+            "tanggapanStatus"
+          ).textContent =
+            data.data.status ||
+            "Menunggu";
+
+
+          document.getElementById(
+            "tanggapanIsi"
+          ).textContent =
+            data.data.tanggapan ||
+            "Belum ada tanggapan dari pihak desa.";
+
+
+          statusBox.classList.add(
+            "show"
+          );
+
+        },
+
+        function() {
+
+          hasil.className =
+            "hasil error";
+
+          hasil.textContent =
+            "Gagal mengambil data. Silakan coba lagi.";
+
+          hasil.style.display =
+            "block";
+
+
+          statusBox.classList.remove(
+            "show"
+          );
+
+        }
+
+      );
 
     }
 
 
-    /* =========================
-       FORM PESAN
-    ========================= */
+    // ==========================================
+    // AMBIL DATA TOKEN DENGAN JSONP
+    // ==========================================
+
+    function ambilDataToken(
+      token,
+      berhasil,
+      gagal
+    ) {
+
+      const callbackName =
+        "callbackToken_" +
+        Date.now() +
+        "_" +
+        Math.floor(
+          Math.random() * 100000
+        );
+
+
+      const script =
+        document.createElement(
+          "script"
+        );
+
+
+      const url =
+        WEB_APP_URL +
+        "?action=cek_token" +
+        "&token=" +
+        encodeURIComponent(token) +
+        "&callback=" +
+        callbackName;
+
+
+      let selesai = false;
+
+
+      window[callbackName] =
+        function(data) {
+
+          selesai = true;
+
+
+          try {
+
+            berhasil(data);
+
+          } finally {
+
+            bersihkan();
+
+          }
+
+        };
+
+
+      script.src = url;
+
+
+      script.onerror =
+        function() {
+
+          if (!selesai) {
+            gagal();
+          }
+
+          bersihkan();
+
+        };
+
+
+      document.body.appendChild(
+        script
+      );
+
+
+      // Jika server tidak merespons
+      setTimeout(
+        function() {
+
+          if (!selesai) {
+
+            selesai = true;
+
+            gagal();
+
+            bersihkan();
+
+          }
+
+        },
+        10000
+      );
+
+
+      function bersihkan() {
+
+        if (script.parentNode) {
+
+          script.parentNode.removeChild(
+            script
+          );
+
+        }
+
+
+        try {
+
+          delete window[callbackName];
+
+        } catch (error) {
+
+          window[callbackName] =
+            undefined;
+
+        }
+
+      }
+
+    }
+
+
+    // ==========================================
+    // PESAN
+    // ==========================================
 
     const formPesan =
       document.getElementById(
@@ -1512,6 +1819,7 @@
           document.getElementById(
             "btnPesan"
           );
+
 
         const hasil =
           document.getElementById(
@@ -1571,12 +1879,16 @@
             WEB_APP_URL,
             {
               method: "POST",
+
               mode: "no-cors",
+
               headers: {
                 "Content-Type":
                   "text/plain;charset=utf-8"
               },
-              body: JSON.stringify(data)
+
+              body:
+                JSON.stringify(data)
             }
           );
 
@@ -1595,6 +1907,9 @@
 
 
         } catch (error) {
+
+          console.error(error);
+
 
           hasil.className =
             "hasil error";
