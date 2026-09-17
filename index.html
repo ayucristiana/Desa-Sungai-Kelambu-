@@ -10,15 +10,20 @@
     <meta name="description"
         content="Website informasi dan keindahan Desa Sungai Kelambu, Kecamatan Tebas, Kabupaten Sambas, Kalimantan Barat.">
 
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
     <!-- GOOGLE FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- FONT AWESOME -->
-    <link rel="stylesheet"
+    <link
+        rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <!-- CSS -->
@@ -80,19 +85,9 @@
                 Galeri
             </a>
 
-            <a href="ajuan.html">
-                Ajukan Permohonan
+            <a href="pelayanan.html">
+                Pelayanan
             </a>
-
-            <a href="tanggapan.html">
-                Lihat Tanggapan
-            </a>
-
-            <a href="pesan.html">
-                Kirim Pesan
-            </a>
-
-            <a href="pelayanan.html">Pelayanan</a>
 
             <a href="admin.html">
                 Admin
@@ -133,8 +128,11 @@
 
 
         <a href="tentang.html" class="btn">
+
             Jelajahi Desa
+
             <i class="fa-solid fa-arrow-right"></i>
+
         </a>
 
     </div>
@@ -189,8 +187,11 @@
 
 
             <a href="tentang.html" class="text-link">
+
                 Selengkapnya
+
                 <i class="fa-solid fa-arrow-right"></i>
+
             </a>
 
         </div>
@@ -223,10 +224,14 @@
     <div class="card-container">
 
 
+        <!-- KEINDAHAN ALAM -->
+
         <div class="card">
 
             <div class="card-icon">
+
                 <i class="fa-solid fa-leaf"></i>
+
             </div>
 
             <h3>
@@ -242,10 +247,14 @@
 
 
 
+        <!-- BUDAYA -->
+
         <div class="card">
 
             <div class="card-icon">
+
                 <i class="fa-solid fa-landmark"></i>
+
             </div>
 
             <h3>
@@ -261,10 +270,14 @@
 
 
 
+        <!-- FASILITAS -->
+
         <div class="card">
 
             <div class="card-icon">
+
                 <i class="fa-solid fa-building"></i>
+
             </div>
 
             <h3>
@@ -301,9 +314,9 @@
         </h2>
 
         <p>
-            Gunakan layanan berikut untuk menyampaikan
-            pengajuan, melihat tanggapan, atau mengirim pesan
-            kepada pihak desa.
+            Sampaikan pengaduan, cek tanggapan dari
+            pihak desa, atau kirim pesan melalui
+            satu halaman pelayanan.
         </p>
 
     </div>
@@ -312,78 +325,36 @@
     <div class="card-container">
 
 
-        <!-- AJUAN -->
-
         <div class="card">
 
             <div class="card-icon">
-                <i class="fa-solid fa-file-circle-plus"></i>
+
+                <i class="fa-solid fa-headset"></i>
+
             </div>
 
-            <h3>
-                Ajukan Permohonan
-            </h3>
-
-            <p>
-                Masyarakat dapat mengirimkan pengajuan atau
-                permohonan kepada pihak Desa Sungai Kelambu.
-            </p>
-
-            <a href="ajuan.html" class="btn">
-                Ajukan Sekarang
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
-        </div>
-
-
-
-        <!-- TANGGAPAN -->
-
-        <div class="card">
-
-            <div class="card-icon">
-                <i class="fa-solid fa-comments"></i>
-            </div>
 
             <h3>
-                Lihat Tanggapan
+                Pelayanan Desa
             </h3>
 
-            <p>
-                Lihat informasi tanggapan yang telah diberikan
-                oleh pihak admin desa.
-            </p>
-
-            <a href="tanggapan.html" class="btn">
-                Lihat Tanggapan
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
-        </div>
-
-
-
-        <!-- PESAN -->
-
-        <div class="card">
-
-            <div class="card-icon">
-                <i class="fa-solid fa-envelope"></i>
-            </div>
-
-            <h3>
-                Kirim Pesan
-            </h3>
 
             <p>
-                Sampaikan pertanyaan, informasi, atau pesan
-                kepada pihak Desa Sungai Kelambu.
+                Gunakan halaman pelayanan untuk menyampaikan
+                pengaduan, melihat tanggapan admin berdasarkan
+                token, dan mengirim pesan kepada pihak Desa
+                Sungai Kelambu.
             </p>
 
-            <a href="pesan.html" class="btn">
-                Kirim Pesan
+
+            <a
+                href="pelayanan.html"
+                class="btn">
+
+                Buka Pelayanan
+
                 <i class="fa-solid fa-arrow-right"></i>
+
             </a>
 
         </div>
@@ -456,6 +427,7 @@
             rel="noopener noreferrer">
 
             Lihat di Google Maps
+
             <i class="fa-solid fa-location-dot"></i>
 
         </a>
@@ -500,57 +472,82 @@
 
 <script>
 
-const menuToggle = document.getElementById("menuToggle");
-const navMenu = document.getElementById("navMenu");
+const menuToggle =
+    document.getElementById("menuToggle");
 
-menuToggle.addEventListener("click", function () {
-
-    navMenu.classList.toggle("active");
-
-    const isOpen = navMenu.classList.contains("active");
-
-    menuToggle.setAttribute(
-        "aria-expanded",
-        isOpen
-    );
-
-    if (isOpen) {
-
-        menuToggle.innerHTML =
-            '<i class="fa-solid fa-xmark"></i>';
-
-    } else {
-
-        menuToggle.innerHTML =
-            '<i class="fa-solid fa-bars"></i>';
-
-    }
-
-});
+const navMenu =
+    document.getElementById("navMenu");
 
 
-const navLinks = document.querySelectorAll(".nav-menu a");
+menuToggle.addEventListener(
+    "click",
+    function () {
 
-navLinks.forEach(function(link) {
+        navMenu.classList.toggle("active");
 
-    link.addEventListener("click", function() {
+        const isOpen =
+            navMenu.classList.contains("active");
 
-        navMenu.classList.remove("active");
 
         menuToggle.setAttribute(
             "aria-expanded",
-            "false"
+            isOpen
         );
 
-        menuToggle.innerHTML =
-            '<i class="fa-solid fa-bars"></i>';
 
-    });
+        if (isOpen) {
 
-});
+            menuToggle.innerHTML =
+                '<i class="fa-solid fa-xmark"></i>';
+
+        } else {
+
+            menuToggle.innerHTML =
+                '<i class="fa-solid fa-bars"></i>';
+
+        }
+
+    }
+);
+
+
+
+const navLinks =
+    document.querySelectorAll(
+        ".nav-menu a"
+    );
+
+
+navLinks.forEach(
+    function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                navMenu.classList.remove(
+                    "active"
+                );
+
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+
+                menuToggle.innerHTML =
+                    '<i class="fa-solid fa-bars"></i>';
+
+            }
+        );
+
+    }
+);
 
 </script>
 
+
 </body>
 
-            </html>
+</html>
