@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dashboard Admin - Desa Sungai Kelambu</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f5ed;
+      color: #27382c;
+    }
+
+    .header {
+      background: #27382c;
+      color: white;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .header h1 {
+      font-size: 21px;
+    }
+
+    .header p {
+      font-size: 13px;
+      opacity: 0.8;
+      margin-top: 4px;
+    }
+
+    .logout {
+      border: none;
+      background: #ffffff;
+      color: #27382c;
+      padding: 9px 14px;
+      border-radius: 7px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 25px auto;
+      padding: 0 18px;
+    }
+
+    .welcome {
+      background: white;
+      padding: 22px;
+      border-radius: 15px;
+      margin-bottom: 22px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+
+    .welcome h2 {
+      margin-bottom: 7px;
+    }
+
+    .welcome p {
+      color: #666;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      padding: 22px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      margin-bottom: 7px;
+    }
+
+    .card p {
+      color: #777;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      background: #27382c;
+      color: white;
+      padding: 11px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    .menu {
+      margin-top: 25px;
+      background: white;
+      padding: 22px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+
+    .menu h2 {
+      margin-bottom: 15px;
+    }
+
+    .menu a {
+      display: block;
+      text-decoration: none;
+      color: #27382c;
+      padding: 13px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .menu a:last-child {
+      border-bottom: none;
+    }
+
+    .menu a:hover {
+      background: #f5f5ef;
+    }
+
+    @media (max-width: 750px) {
+
+      .header {
+        align-items: flex-start;
+      }
+
+      .header h1 {
+        font-size: 18px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .logout {
+        font-size: 12px;
+        padding: 8px 10px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+
+    <div>
+      <h1>Dashboard Admin</h1>
+      <p>Desa Sungai Kelambu</p>
+    </div>
+
+    <button class="logout" onclick="logout()">
+      Keluar
+    </button>
+
+  </header>
+
+
+  <main class="container">
+
+    <section class="welcome">
+
+      <h2>Selamat Datang, Admin</h2>
+
+      <p>
+        Kelola data dan pelayanan Desa Sungai Kelambu melalui halaman admin.
+      </p>
+
+    </section>
+
+
+    <section class="cards">
+
+      <div class="card">
+
+        <div class="icon">📄</div>
+
+        <h3>Ajuan</h3>
+
+        <p>
+          Melihat data ajuan yang dikirim oleh masyarakat.
+        </p>
+
+        <a href="#" class="btn">
+          Lihat Ajuan
+        </a>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">💬</div>
+
+        <h3>Tanggapan</h3>
+
+        <p>
+          Melihat tanggapan dan penilaian pelayanan desa.
+        </p>
+
+        <a href="#" class="btn">
+          Lihat Tanggapan
+        </a>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">✉️</div>
+
+        <h3>Pesan</h3>
+
+        <p>
+          Melihat pesan yang dikirim melalui website.
+        </p>
+
+        <a href="#" class="btn">
+          Lihat Pesan
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <section class="menu">
+
+      <h2>Menu Admin</h2>
+
+      <a href="#">
+        👥 Kelola Data Penduduk
+      </a>
+
+      <a href="#">
+        🏢 Kelola Fasilitas Desa
+      </a>
+
+      <a href="#">
+        📰 Kelola Berita
+      </a>
+
+      <a href="#">
+        🖼️ Kelola Galeri
+      </a>
+
+      <a href="#">
+        🌿 Kelola Budaya
+      </a>
+
+      <a href="index.html">
+        🏠 Kembali ke Website Desa
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <script>
+
+    // Cek apakah admin sudah login
+    if (localStorage.getItem("adminLogin") !== "true") {
+      window.location.href = "admin.html";
+    }
+
+
+    function logout() {
+
+      localStorage.removeItem("adminLogin");
+
+      window.location.href = "admin.html";
+
+    }
+
+  </script>
+
+</body>
+  </html>
