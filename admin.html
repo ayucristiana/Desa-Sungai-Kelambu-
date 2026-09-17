@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Login Admin - Desa Sungai Kelambu</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f5ed;
+      color: #27382c;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 420px;
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 45px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 8px;
+      font-size: 26px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #777;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 9px;
+      font-size: 15px;
+      margin-bottom: 17px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #27382c;
+    }
+
+    button {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 9px;
+      background: #27382c;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    #pesan {
+      display: none;
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .error {
+      display: block !important;
+      background: #f8dddd;
+      color: #8a2222;
+    }
+
+    .kembali {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #27382c;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .info {
+      margin-top: 20px;
+      padding: 12px;
+      background: #f3f3ee;
+      border-radius: 8px;
+      font-size: 12px;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login-box">
+
+    <div class="logo">🏡</div>
+
+    <h1>Login Admin</h1>
+
+    <p class="subtitle">
+      Desa Sungai Kelambu
+    </p>
+
+    <form id="loginForm">
+
+      <label for="username">
+        Username
+      </label>
+
+      <input
+        type="text"
+        id="username"
+        placeholder="Masukkan username"
+        required
+      >
+
+      <label for="password">
+        Password
+      </label>
+
+      <input
+        type="password"
+        id="password"
+        placeholder="Masukkan password"
+        required
+      >
+
+      <button type="submit">
+        Masuk ke Admin
+      </button>
+
+    </form>
+
+    <div id="pesan"></div>
+
+    <a href="index.html" class="kembali">
+      ← Kembali ke Beranda
+    </a>
+
+    <div class="info">
+      Halaman khusus pengelola Desa Sungai Kelambu
+    </div>
+
+  </div>
+
+  <script>
+
+    const form = document.getElementById("loginForm");
+    const pesan = document.getElementById("pesan");
+
+    form.addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      const username =
+        document.getElementById("username").value.trim();
+
+      const password =
+        document.getElementById("password").value;
+
+      /*
+        LOGIN DEMO
+        Username : ayu
+        Password : 2125
+      */
+
+      if (username === "admin" && password === "admin123") {
+
+        localStorage.setItem("adminLogin", "true");
+
+        window.location.href = "dashboard.html";
+
+      } else {
+
+        pesan.className = "error";
+
+        pesan.textContent =
+          "Username atau password salah.";
+
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
