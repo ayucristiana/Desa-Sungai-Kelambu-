@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" href="img/favicon.png">
+
+  <title>Pelayanan Desa - Desa Sungai Kelambu</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f5f7f3;
+      color: #27382c;
+      min-height: 100vh;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    header {
+      background: #27382c;
+      padding: 0 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      color: white;
+      text-decoration: none;
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    .logo span {
+      color: #d9b85f;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 12px;
+      font-size: 13px;
+      border-radius: 7px;
+      transition: 0.3s;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      background: rgba(255,255,255,0.12);
+      color: #e1c76b;
+    }
+
+    .menu-toggle {
+      display: none;
+      color: white;
+      font-size: 27px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      background:
+        linear-gradient(rgba(39,56,44,0.92), rgba(39,56,44,0.92)),
+        url("img/desa.jpg") center/cover;
+      color: white;
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .hero h1 {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.8;
+      color: #e8eee8;
+    }
+
+    /* =========================
+       CONTAINER
+    ========================= */
+
+    .container {
+      max-width: 1100px;
+      margin: 45px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      font-size: 27px;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #6d756e;
+      font-size: 14px;
+    }
+
+    /* =========================
+       SERVICE CARDS
+    ========================= */
+
+    .layanan-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .layanan-card {
+      background: white;
+      border-radius: 16px;
+      padding: 25px 18px;
+      text-align: center;
+      border: 1px solid #e4e9e4;
+      box-shadow: 0 5px 18px rgba(39,56,44,0.06);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .layanan-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(39,56,44,0.12);
+    }
+
+    .layanan-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      background: #edf3ed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+
+    .layanan-card h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .layanan-card p {
+      color: #737973;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    /* =========================
+       PANEL
+    ========================= */
+
+    .panel {
+      display: none;
+      background: white;
+      margin-top: 35px;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 5px 20px rgba(39,56,44,0.08);
+      border: 1px solid #e5e9e5;
+    }
+
+    .panel.active {
+      display: block;
+    }
+
+    .panel h2 {
+      text-align: center;
+      margin-bottom: 8px;
+      font-size: 25px;
+    }
+
+    .panel-description {
+      text-align: center;
+      color: #737973;
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    /* =========================
+       FORM
+    ========================= */
+
+    .form-group {
+      margin-bottom: 17px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      font-size: 13px;
+      margin-bottom: 7px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #ccd4cc;
+      border-radius: 9px;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      background: white;
+      color: #27382c;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #27382c;
+      box-shadow: 0 0 0 3px rgba(39,56,44,0.08);
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .btn {
+      width: 100%;
+      border: none;
+      padding: 13px;
+      border-radius: 9px;
+      background: #27382c;
+      color: white;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #1c2b21;
+    }
+
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .btn-secondary {
+      background: #e9eee9;
+      color: #27382c;
+      margin-top: 10px;
+    }
+
+    .btn-secondary:hover {
+      background: #dce5dc;
+    }
+
+    /* =========================
+       HASIL
+    ========================= */
+
+    .hasil {
+      display: none;
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .success {
+      display: block;
+      background: #e5f4e8;
+      color: #245c35;
+    }
+
+    .error {
+      display: block;
+      background: #f8dddd;
+      color: #8a2222;
+    }
+
+    /* =========================
+       TOKEN
+    ========================= */
+
+    .token-box {
+      display: none;
+      margin-top: 20px;
+      padding: 22px;
+      background: #f4f7f3;
+      border: 1px dashed #27382c;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .token-box.show {
+      display: block;
+    }
+
+    .token-label {
+      font-size: 12px;
+      color: #6d756e;
+      margin-bottom: 7px;
+    }
+
+    .token-code {
+      font-size: 23px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #27382c;
+      word-break: break-word;
+    }
+
+    .token-note {
+      font-size: 11px;
+      color: #737973;
+      margin-top: 10px;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       STATUS
+    ========================= */
+
+    .status-box {
+      margin-top: 22px;
+      padding: 20px;
+      background: #f5f7f3;
+      border-radius: 12px;
+      display: none;
+    }
+
+    .status-box.show {
+      display: block;
+    }
+
+    .status-title {
+      font-size: 12px;
+      color: #727872;
+      margin-bottom: 5px;
+    }
+
+    .status-value {
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .tanggapan-box {
+      padding: 15px;
+      background: white;
+      border-radius: 10px;
+      border: 1px solid #e1e6e1;
+      line-height: 1.8;
+      font-size: 13px;
+    }
+
+    /* =========================
+       INFO ALUR
+    ========================= */
+
+    .alur {
+      margin-top: 40px;
+      background: #27382c;
+      color: white;
+      border-radius: 18px;
+      padding: 30px;
+    }
+
+    .alur h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 23px;
+    }
+
+    .alur-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .alur-item {
+      text-align: center;
+      padding: 10px;
+    }
+
+    .alur-number {
+      width: 42px;
+      height: 42px;
+      margin: 0 auto 10px;
+      border-radius: 50%;
+      background: #d9b85f;
+      color: #27382c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .alur-item h4 {
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+
+    .alur-item p {
+      font-size: 11px;
+      color: #d8e0d9;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      margin-top: 50px;
+      background: #1d2921;
+      color: white;
+      text-align: center;
+      padding: 25px 20px;
+      font-size: 12px;
+    }
+
+    footer p {
+      color: #cbd2cc;
+      margin-top: 5px;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 950px) {
+
+      .layanan-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .alur-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-menu {
+        gap: 0;
+      }
+
+      .nav-menu a {
+        font-size: 12px;
+        padding: 9px 8px;
+      }
+    }
+
+    @media (max-width: 700px) {
+
+      header {
+        padding: 0 15px;
+      }
+
+      .navbar {
+        min-height: 62px;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 62px;
+        left: 0;
+        right: 0;
+        background: #27382c;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px 15px 15px;
+        box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+      }
+
+      .nav-menu.show {
+        display: flex;
+      }
+
+      .nav-menu a {
+        display: block;
+        padding: 12px;
+        text-align: center;
+      }
+
+      .hero {
+        padding: 50px 20px;
+      }
+
+      .hero h1 {
+        font-size: 29px;
+      }
+
+      .hero p {
+        font-size: 13px;
+      }
+
+      .container {
+        margin: 30px auto;
+      }
+
+      .layanan-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .layanan-card {
+        padding: 20px 12px;
+      }
+
+      .layanan-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 23px;
+      }
+
+      .layanan-card h3 {
+        font-size: 14px;
+      }
+
+      .layanan-card p {
+        font-size: 10px;
+      }
+
+      .panel {
+        padding: 22px 17px;
+      }
+
+      .alur {
+        padding: 22px 15px;
+      }
+
+      .alur-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 420px) {
+
+      .layanan-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .alur-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVBAR
+  ========================= -->
+
+  <header>
+    <nav class="navbar">
+
+      <a href="index.html" class="logo">
+        Sungai <span>Kelambu</span>
+      </a>
+
+      <div class="menu-toggle" id="menuToggle">
+        ☰
+      </div>
+
+      <div class="nav-menu" id="navMenu">
+        <a href="index.html">Beranda</a>
+        <a href="tentang.html">Tentang Desa</a>
+        <a href="alam.html">Keindahan Alam</a>
+        <a href="fasilitas.html">Fasilitas</a>
+        <a href="budaya.html">Budaya</a>
+        <a href="galeri.html">Galeri</a>
+        <a href="pelayanan.html" class="active">Pelayanan</a>
+        <a href="admin.html">Admin</a>
+      </div>
+
+    </nav>
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section class="hero">
+    <h1>Pelayanan Desa</h1>
+
+    <p>
+      Selamat datang di layanan digital Desa Sungai Kelambu.
+      Sampaikan pengaduan, cek status menggunakan token,
+      lihat tanggapan desa, atau kirim pesan kepada pemerintah desa.
+    </p>
+  </section>
+
+
+  <!-- =========================
+       LAYANAN
+  ========================= -->
+
+  <main class="container">
+
+    <div class="section-title">
+      <h2>Layanan Masyarakat</h2>
+      <p>Pilih layanan yang ingin kamu gunakan</p>
+    </div>
+
+
+    <div class="layanan-grid">
+
+      <div class="layanan-card" onclick="bukaPanel('pengaduan')">
+        <div class="layanan-icon">📝</div>
+        <h3>Pengaduan</h3>
+        <p>
+          Sampaikan pengaduan, laporan, atau permohonan kepada desa.
+        </p>
+      </div>
+
+
+      <div class="layanan-card" onclick="bukaPanel('token')">
+        <div class="layanan-icon">🔑</div>
+        <h3>Cek Token</h3>
+        <p>
+          Gunakan token untuk mengecek status pengaduan kamu.
+        </p>
+      </div>
+
+
+      <div class="layanan-card" onclick="bukaPanel('tanggapan')">
+        <div class="layanan-icon">💬</div>
+        <h3>Tanggapan</h3>
+        <p>
+          Lihat tanggapan atau jawaban dari pihak desa.
+        </p>
+      </div>
+
+
+      <div class="layanan-card" onclick="bukaPanel('pesan')">
+        <div class="layanan-icon">✉️</div>
+        <h3>Pesan</h3>
+        <p>
+          Kirim pertanyaan atau pesan langsung kepada desa.
+        </p>
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         PENGADUAN
+    ========================= -->
+
+    <section class="panel active" id="panel-pengaduan">
+
+      <h2>📝 Pengaduan Desa</h2>
+
+      <p class="panel-description">
+        Silakan isi data pengaduan dengan lengkap dan benar.
+      </p>
+
+      <form id="formPengaduan">
+
+        <div class="form-group">
+          <label for="pengaduanNama">Nama Lengkap</label>
+          <input
+            type="text"
+            id="pengaduanNama"
+            placeholder="Masukkan nama lengkap"
+            required
+          >
+        </div>
+
+
+        <div class="form-group">
+          <label for="pengaduanHp">Nomor HP</label>
+          <input
+            type="tel"
+            id="pengaduanHp"
+            placeholder="Contoh: 081234567890"
+            required
+          >
+        </div>
+
+
+        <div class="form-group">
+          <label for="jenisPengaduan">Jenis Pengaduan</label>
+
+          <select id="jenisPengaduan" required>
+            <option value="">-- Pilih jenis pengaduan --</option>
+            <option value="Pelayanan Desa">Pelayanan Desa</option>
+            <option value="Administrasi">Administrasi</option>
+            <option value="Infrastruktur">Infrastruktur</option>
+            <option value="Fasilitas Umum">Fasilitas Umum</option>
+            <option value="Lingkungan">Lingkungan</option>
+            <option value="Sosial">Sosial</option>
+            <option value="Lainnya">Lainnya</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <label for="isiPengaduan">Isi Pengaduan</label>
+
+          <textarea
+            id="isiPengaduan"
+            placeholder="Tuliskan pengaduan atau laporan kamu..."
+            required
+          ></textarea>
+        </div>
+
+
+        <button type="submit" class="btn" id="btnPengaduan">
+          Kirim Pengaduan
+        </button>
+
+      </form>
+
+
+      <div class="hasil" id="hasilPengaduan"></div>
+
+
+      <div class="token-box" id="tokenHasil">
+
+        <div class="token-label">
+          Token Pengaduan Kamu
+        </div>
+
+        <div class="token-code" id="tokenCode">
+          -
+        </div>
+
+        <div class="token-note">
+          Simpan token ini dengan baik.
+          Token akan digunakan untuk mengecek status
+          dan tanggapan pengaduan.
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         TOKEN
+    ========================= -->
+
+    <section class="panel" id="panel-token">
+
+      <h2>🔑 Cek Token</h2>
+
+      <p class="panel-description">
+        Masukkan token pengaduan untuk melihat statusnya.
+      </p>
+
+
+      <div class="form-group">
+
+        <label for="inputToken">
+          Token Pengaduan
+        </label>
+
+        <input
+          type="text"
+          id="inputToken"
+          placeholder="Contoh: SKL-2026-8F42K"
+          autocomplete="off"
+        >
+
+      </div>
+
+
+      <button
+        type="button"
+        class="btn"
+        onclick="cekToken()"
+      >
+        Cek Status
+      </button>
+
+
+      <div class="hasil" id="hasilToken"></div>
+
+
+      <div class="status-box" id="statusBox">
+
+        <div class="status-title">
+          Status Pengaduan
+        </div>
+
+        <div class="status-value" id="statusValue">
+          -
+        </div>
+
+
+        <div class="status-title">
+          Tanggapan Desa
+        </div>
+
+        <div class="tanggapan-box" id="isiTanggapan">
+          Belum ada tanggapan.
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         TANGGAPAN
+    ========================= -->
+
+    <section class="panel" id="panel-tanggapan">
+
+      <h2>💬 Tanggapan Desa</h2>
+
+      <p class="panel-description">
+        Tanggapan dari pihak desa terhadap pengaduan masyarakat
+        akan ditampilkan melalui token pengaduan.
+      </p>
+
+
+      <div class="form-group">
+
+        <label for="tokenTanggapan">
+          Token Pengaduan
+        </label>
+
+        <input
+          type="text"
+          id="tokenTanggapan"
+          placeholder="Masukkan token pengaduan"
+          autocomplete="off"
+        >
+
+      </div>
+
+
+      <button
+        type="button"
+        class="btn"
+        onclick="lihatTanggapan()"
+      >
+        Lihat Tanggapan
+      </button>
+
+
+      <div class="hasil" id="hasilTanggapan"></div>
+
+
+      <div class="status-box" id="tanggapanStatusBox">
+
+        <div class="status-title">
+          Status
+        </div>
+
+        <div class="status-value" id="tanggapanStatus">
+          -
+        </div>
+
+        <div class="status-title">
+          Tanggapan Desa
+        </div>
+
+        <div class="tanggapan-box" id="tanggapanIsi">
+          Belum ada tanggapan.
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PESAN
+    ========================= -->
+
+    <section class="panel" id="panel-pesan">
+
+      <h2>✉️ Kirim Pesan</h2>
+
+      <p class="panel-description">
+        Kirim pertanyaan atau pesan kepada Pemerintah Desa Sungai Kelambu.
+      </p>
+
+
+      <form id="formPesan">
+
+        <div class="form-group">
+
+          <label for="pesanNama">
+            Nama Lengkap
+          </label>
+
+          <input
+            type="text"
+            id="pesanNama"
+            placeholder="Masukkan nama lengkap"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="pesanHp">
+            Nomor HP
+          </label>
+
+          <input
+            type="tel"
+            id="pesanHp"
+            placeholder="Contoh: 081234567890"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="pesanEmail">
+            Email
+          </label>
+
+          <input
+            type="email"
+            id="pesanEmail"
+            placeholder="contoh@email.com"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="pesanSubjek">
+            Subjek
+          </label>
+
+          <input
+            type="text"
+            id="pesanSubjek"
+            placeholder="Contoh: Pertanyaan pelayanan desa"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="isiPesan">
+            Pesan
+          </label>
+
+          <textarea
+            id="isiPesan"
+            placeholder="Tuliskan pesan atau pertanyaan kamu..."
+            required
+          ></textarea>
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="btn"
+          id="btnPesan"
+        >
+          Kirim Pesan
+        </button>
+
+      </form>
+
+
+      <div class="hasil" id="hasilPesan"></div>
+
+    </section>
+
+
+    <!-- =========================
+         ALUR
+    ========================= -->
+
+    <section class="alur">
+
+      <h2>Alur Pelayanan Pengaduan</h2>
+
+      <div class="alur-grid">
+
+        <div class="alur-item">
+
+          <div class="alur-number">
+            1
+          </div>
+
+          <h4>Kirim Pengaduan</h4>
+
+          <p>
+            Masyarakat mengisi dan mengirim pengaduan.
+          </p>
+
+        </div>
+
+
+        <div class="alur-item">
+
+          <div class="alur-number">
+            2
+          </div>
+
+          <h4>Dapatkan Token</h4>
+
+          <p>
+            Sistem memberikan token sebagai kode pengaduan.
+          </p>
+
+        </div>
+
+
+        <div class="alur-item">
+
+          <div class="alur-number">
+            3
+          </div>
+
+          <h4>Diproses Desa</h4>
+
+          <p>
+            Pihak desa memeriksa dan memproses pengaduan.
+          </p>
+
+        </div>
+
+
+        <div class="alur-item">
+
+          <div class="alur-number">
+            4
+          </div>
+
+          <h4>Cek Tanggapan</h4>
+
+          <p>
+            Masyarakat menggunakan token untuk melihat tanggapan.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <strong>Desa Sungai Kelambu</strong>
+
+    <p>
+      Pelayanan Digital Desa Sungai Kelambu
+    </p>
+
+    <p>
+      © 2026 Pemerintah Desa Sungai Kelambu
+    </p>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    const WEB_APP_URL =
+      "https://script.google.com/macros/s/AKfycbzz2BBMcvUVK8n-nMa-GVaCor0EFtIEMA3x-BrTFRZAvihe_GOnXpb_cQ7CGrRLLHNo/exec";
+
+
+    /* =========================
+       MENU MOBILE
+    ========================= */
+
+    const menuToggle =
+      document.getElementById("menuToggle");
+
+    const navMenu =
+      document.getElementById("navMenu");
+
+
+    menuToggle.addEventListener("click", function() {
+
+      navMenu.classList.toggle("show");
+
+    });
+
+
+    /* =========================
+       BUKA PANEL
+    ========================= */
+
+    function bukaPanel(namaPanel) {
+
+      const panels =
+        document.querySelectorAll(".panel");
+
+      panels.forEach(function(panel) {
+
+        panel.classList.remove("active");
+
+      });
+
+
+      const panelTujuan =
+        document.getElementById("panel-" + namaPanel);
+
+      if (panelTujuan) {
+
+        panelTujuan.classList.add("active");
+
+        panelTujuan.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+      }
+
+    }
+
+
+    /* =========================
+       TOKEN SEMENTARA
+       AKAN DIGANTI BACKEND
+    ========================= */
+
+    function buatToken() {
+
+      const angka =
+        Math.random()
+          .toString(36)
+          .substring(2, 7)
+          .toUpperCase();
+
+      const tahun =
+        new Date().getFullYear();
+
+      return "SKL-" + tahun + "-" + angka;
+
+    }
+
+
+    /* =========================
+       FORM PENGADUAN
+    ========================= */
+
+    const formPengaduan =
+      document.getElementById("formPengaduan");
+
+
+    formPengaduan.addEventListener(
+      "submit",
+      async function(event) {
+
+        event.preventDefault();
+
+
+        const tombol =
+          document.getElementById("btnPengaduan");
+
+        const hasil =
+          document.getElementById("hasilPengaduan");
+
+        const tokenBox =
+          document.getElementById("tokenHasil");
+
+        const tokenCode =
+          document.getElementById("tokenCode");
+
+
+        tombol.disabled = true;
+
+        tombol.textContent =
+          "Mengirim...";
+
+
+        hasil.className = "hasil";
+
+        hasil.style.display = "none";
+
+
+        const token =
+          buatToken();
+
+
+        const data = {
+
+          type: "pengaduan",
+
+          token: token,
+
+          nama:
+            document.getElementById(
+              "pengaduanNama"
+            ).value.trim(),
+
+          no_hp:
+            document.getElementById(
+              "pengaduanHp"
+            ).value.trim(),
+
+          jenis_pengaduan:
+            document.getElementById(
+              "jenisPengaduan"
+            ).value,
+
+          isi_pengaduan:
+            document.getElementById(
+              "isiPengaduan"
+            ).value.trim()
+
+        };
+
+
+        try {
+
+          await fetch(
+            WEB_APP_URL,
+            {
+              method: "POST",
+              mode: "no-cors",
+              headers: {
+                "Content-Type":
+                  "text/plain;charset=utf-8"
+              },
+              body: JSON.stringify(data)
+            }
+          );
+
+
+          hasil.className =
+            "hasil success";
+
+          hasil.textContent =
+            "Pengaduan berhasil dikirim.";
+
+
+          hasil.style.display =
+            "block";
+
+
+          tokenCode.textContent =
+            token;
+
+
+          tokenBox.classList.add(
+            "show"
+          );
+
+
+          formPengaduan.reset();
+
+
+        } catch (error) {
+
+          hasil.className =
+            "hasil error";
+
+          hasil.textContent =
+            "Pengaduan gagal dikirim. Silakan coba lagi.";
+
+          hasil.style.display =
+            "block";
+
+        }
+
+
+        tombol.disabled =
+          false;
+
+        tombol.textContent =
+          "Kirim Pengaduan";
+
+      }
+    );
+
+
+    /* =========================
+       CEK TOKEN
+    ========================= */
+
+    async function cekToken() {
+
+      const input =
+        document.getElementById(
+          "inputToken"
+        );
+
+      const token =
+        input.value.trim();
+
+
+      const hasil =
+        document.getElementById(
+          "hasilToken"
+        );
+
+      const statusBox =
+        document.getElementById(
+          "statusBox"
+        );
+
+
+      if (!token) {
+
+        hasil.className =
+          "hasil error";
+
+        hasil.textContent =
+          "Silakan masukkan token pengaduan.";
+
+        hasil.style.display =
+          "block";
+
+        statusBox.classList.remove(
+          "show"
+        );
+
+        return;
+
+      }
+
+
+      /*
+        Backend pengecekan token
+        akan kita aktifkan pada tahap
+        berikutnya melalui Code.gs.
+      */
+
+      hasil.className =
+        "hasil success";
+
+      hasil.textContent =
+        "Token diterima. Sistem sedang menyiapkan data status.";
+
+      hasil.style.display =
+        "block";
+
+
+      statusBox.classList.add(
+        "show"
+      );
+
+
+      document.getElementById(
+        "statusValue"
+      ).textContent =
+        "Menunggu diproses";
+
+
+      document.getElementById(
+        "isiTanggapan"
+      ).textContent =
+        "Belum ada tanggapan dari pihak desa.";
+    }
+
+
+    /* =========================
+       LIHAT TANGGAPAN
+    ========================= */
+
+    function lihatTanggapan() {
+
+      const token =
+        document.getElementById(
+          "tokenTanggapan"
+        ).value.trim();
+
+
+      const hasil =
+        document.getElementById(
+          "hasilTanggapan"
+        );
+
+
+      const statusBox =
+        document.getElementById(
+          "tanggapanStatusBox"
+        );
+
+
+      if (!token) {
+
+        hasil.className =
+          "hasil error";
+
+        hasil.textContent =
+          "Silakan masukkan token pengaduan.";
+
+        hasil.style.display =
+          "block";
+
+        statusBox.classList.remove(
+          "show"
+        );
+
+        return;
+
+      }
+
+
+      hasil.className =
+        "hasil success";
+
+      hasil.textContent =
+        "Token ditemukan. Tanggapan akan ditampilkan setelah sistem terhubung dengan data desa.";
+
+      hasil.style.display =
+        "block";
+
+
+      statusBox.classList.add(
+        "show"
+      );
+
+
+      document.getElementById(
+        "tanggapanStatus"
+      ).textContent =
+        "Menunggu diproses";
+
+
+      document.getElementById(
+        "tanggapanIsi"
+      ).textContent =
+        "Belum ada tanggapan dari pihak desa.";
+
+    }
+
+
+    /* =========================
+       FORM PESAN
+    ========================= */
+
+    const formPesan =
+      document.getElementById(
+        "formPesan"
+      );
+
+
+    formPesan.addEventListener(
+      "submit",
+      async function(event) {
+
+        event.preventDefault();
+
+
+        const tombol =
+          document.getElementById(
+            "btnPesan"
+          );
+
+        const hasil =
+          document.getElementById(
+            "hasilPesan"
+          );
+
+
+        tombol.disabled =
+          true;
+
+        tombol.textContent =
+          "Mengirim...";
+
+
+        hasil.className =
+          "hasil";
+
+        hasil.style.display =
+          "none";
+
+
+        const data = {
+
+          type: "pesan",
+
+          nama:
+            document.getElementById(
+              "pesanNama"
+            ).value.trim(),
+
+          no_hp:
+            document.getElementById(
+              "pesanHp"
+            ).value.trim(),
+
+          email:
+            document.getElementById(
+              "pesanEmail"
+            ).value.trim(),
+
+          subjek:
+            document.getElementById(
+              "pesanSubjek"
+            ).value.trim(),
+
+          pesan:
+            document.getElementById(
+              "isiPesan"
+            ).value.trim()
+
+        };
+
+
+        try {
+
+          await fetch(
+            WEB_APP_URL,
+            {
+              method: "POST",
+              mode: "no-cors",
+              headers: {
+                "Content-Type":
+                  "text/plain;charset=utf-8"
+              },
+              body: JSON.stringify(data)
+            }
+          );
+
+
+          hasil.className =
+            "hasil success";
+
+          hasil.textContent =
+            "Pesan berhasil dikirim kepada Desa Sungai Kelambu.";
+
+          hasil.style.display =
+            "block";
+
+
+          formPesan.reset();
+
+
+        } catch (error) {
+
+          hasil.className =
+            "hasil error";
+
+          hasil.textContent =
+            "Pesan gagal dikirim. Silakan coba lagi.";
+
+          hasil.style.display =
+            "block";
+
+        }
+
+
+        tombol.disabled =
+          false;
+
+        tombol.textContent =
+          "Kirim Pesan";
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
