@@ -4,308 +4,314 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Data Tanggapan - Admin</title>
+  <title>Tanggapan Pengaduan - Desa Sungai Kelambu</title>
+
+  <link rel="icon" type="image/png" href="img/favicon.png">
 
   <style>
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      background: #f8f5ed;
-      color: #27382c;
-      padding: 20px;
+      background: #f3f7f4;
+      color: #173b2b;
+    }
+
+    header {
+      background: #14532d;
+      color: white;
+      padding: 18px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    header p {
+      margin: 6px 0 0;
+      opacity: 0.9;
+      font-size: 14px;
     }
 
     .container {
-      max-width: 1100px;
-      margin: auto;
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 0 18px;
     }
 
-    .header {
-      background: #27382c;
-      color: white;
-      padding: 20px;
-      border-radius: 15px;
-      margin-bottom: 20px;
-    }
-
-    .header h1 {
-      margin-bottom: 6px;
-    }
-
-    .header p {
-      opacity: 0.8;
-      font-size: 14px;
-    }
-
-    .kembali {
-      display: inline-block;
-      margin-top: 15px;
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    .box {
+    .card {
       background: white;
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-      overflow-x: auto;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     }
 
-    .refresh {
-      margin-bottom: 15px;
-      padding: 10px 15px;
+    h2 {
+      margin-top: 0;
+      color: #14532d;
+    }
+
+    label {
+      display: block;
+      margin-top: 16px;
+      margin-bottom: 7px;
+      font-weight: bold;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #cbd5cf;
+      border-radius: 9px;
+      font-size: 15px;
+      font-family: inherit;
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 13px;
       border: none;
-      border-radius: 8px;
-      background: #27382c;
+      border-radius: 9px;
+      background: #15803d;
       color: white;
+      font-size: 16px;
       font-weight: bold;
       cursor: pointer;
     }
 
-    .status {
-      margin-bottom: 15px;
-      padding: 12px;
-      background: #f3f3ee;
-      border-radius: 8px;
-      text-align: center;
-      color: #666;
+    button:hover {
+      background: #166534;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 750px;
+    .hasil {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      background: #ecfdf5;
+      border: 1px solid #86efac;
     }
 
-    th {
-      background: #27382c;
-      color: white;
-      padding: 12px;
-      text-align: left;
+    .error {
+      background: #fef2f2;
+      border-color: #fca5a5;
+    }
+
+    .info {
+      margin-top: 18px;
+      padding: 14px;
+      background: #f0fdf4;
+      border-radius: 10px;
       font-size: 14px;
+      line-height: 1.6;
     }
 
-    td {
-      padding: 12px;
-      border-bottom: 1px solid #eee;
-      font-size: 14px;
-      vertical-align: top;
-    }
-
-    tr:hover {
-      background: #fafaf6;
-    }
-
-    .rating {
+    .back {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #14532d;
       font-weight: bold;
-    }
-
-    .kosong {
-      text-align: center;
-      padding: 30px;
-      color: #777;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 12px;
-      }
-
-      .box {
-        padding: 12px;
-      }
-
-      .header h1 {
-        font-size: 21px;
-      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+<header>
+  <h1>Admin Desa Sungai Kelambu</h1>
+  <p>Pengelolaan Tanggapan Pengaduan</p>
+</header>
 
-    <div class="header">
+<div class="container">
 
-      <h1>Data Tanggapan</h1>
+  <div class="card">
 
-      <p>
-        Tanggapan masyarakat terhadap pelayanan Desa Sungai Kelambu
-      </p>
+    <h2>Berikan Tanggapan</h2>
 
-      <a href="dashboard.html" class="kembali">
-        ← Kembali ke Dashboard
-      </a>
-
+    <div class="info">
+      Masukkan <strong>Token Pengaduan</strong> masyarakat,
+      lalu tuliskan tanggapan dari pihak Desa.
     </div>
 
+    <form id="formTanggapan">
 
-    <div class="box">
+      <label for="token">Token Pengaduan</label>
 
-      <button class="refresh" onclick="ambilData()">
-        🔄 Refresh Data
+      <input
+        type="text"
+        id="token"
+        placeholder="Contoh: SKL-2026-123456"
+        required
+      >
+
+      <label for="status">Status Pengaduan</label>
+
+      <select id="status">
+        <option value="Sudah Ditanggapi">
+          Sudah Ditanggapi
+        </option>
+
+        <option value="Sedang Diproses">
+          Sedang Diproses
+        </option>
+
+        <option value="Selesai">
+          Selesai
+        </option>
+      </select>
+
+      <label for="tanggapan">
+        Tanggapan Desa
+      </label>
+
+      <textarea
+        id="tanggapan"
+        placeholder="Tuliskan tanggapan dari pihak Desa..."
+        required
+      ></textarea>
+
+      <button type="submit">
+        Kirim Tanggapan
       </button>
 
-      <div id="status" class="status">
-        Mengambil data...
-      </div>
+    </form>
 
-      <div id="tabel"></div>
+    <div
+      id="hasil"
+      class="hasil"
+    ></div>
 
-    </div>
+    <a
+      href="dashboard.html"
+      class="back"
+    >
+      ← Kembali ke Dashboard
+    </a>
 
   </div>
 
+</div>
 
-  <script>
+<script>
 
-    const WEB_APP_URL =
-      "https://script.google.com/macros/s/AKfycbzz2BBMcvUVK8n-nMa-GVaCor0EFtIEMA3x-BrTFRZAvihe_GOnXpb_cQ7CGrRLLHNo/exec";
+const WEB_APP_URL =
+  "https://script.google.com/macros/s/AKfycbxuL4Wg27aujlSoGK_Ri_8LyqFLc4-VGTIlu1lzl843vgg5rqgYzIJJZOOp5jO_mCtrPQ/exec";
 
 
-    // Cek login admin
-    if (localStorage.getItem("adminLogin") !== "true") {
-      window.location.href = "admin.html";
+document
+  .getElementById("formTanggapan")
+  .addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const token =
+      document
+        .getElementById("token")
+        .value
+        .trim()
+        .toUpperCase();
+
+    const status =
+      document
+        .getElementById("status")
+        .value;
+
+    const tanggapan =
+      document
+        .getElementById("tanggapan")
+        .value
+        .trim();
+
+    const hasil =
+      document.getElementById("hasil");
+
+    if (!token || !tanggapan) {
+
+      hasil.style.display = "block";
+
+      hasil.className = "hasil error";
+
+      hasil.innerHTML =
+        "Token dan tanggapan wajib diisi.";
+
+      return;
     }
 
 
-    async function ambilData() {
+    const data = {
 
-      const status = document.getElementById("status");
-      const tabel = document.getElementById("tabel");
+      type: "tanggapan",
 
-      status.textContent = "Mengambil data...";
-      tabel.innerHTML = "";
+      token: token,
 
+      status: status,
 
-      try {
+      tanggapan: tanggapan
 
-        const response = await fetch(
-          WEB_APP_URL + "?action=tanggapan"
-        );
-
-        const hasil = await response.json();
+    };
 
 
-        if (hasil.status !== "success") {
+    fetch(
+      WEB_APP_URL,
+      {
+        method: "POST",
 
-          status.textContent =
-            "Gagal mengambil data.";
+        mode: "no-cors",
 
-          return;
+        headers: {
+          "Content-Type":
+            "text/plain;charset=utf-8"
+        },
 
-        }
-
-
-        const data = hasil.data;
-
-
-        if (!data || data.length === 0) {
-
-          status.textContent =
-            "Belum ada data tanggapan.";
-
-          tabel.innerHTML =
-            '<div class="kosong">Belum ada tanggapan dari masyarakat.</div>';
-
-          return;
-
-        }
-
-
-        status.textContent =
-          "Total tanggapan: " + data.length;
-
-
-        let html = `
-          <table>
-
-            <thead>
-
-              <tr>
-                <th>No</th>
-                <th>Nama</th>
-                <th>No. HP</th>
-                <th>Tanggapan</th>
-                <th>Rating</th>
-              </tr>
-
-            </thead>
-
-            <tbody>
-        `;
-
-
-        data.forEach(function(item, index) {
-
-          const nama =
-            item["Nama"] || item["nama"] || "";
-
-          const noHp =
-            item["No HP"] || item["no_hp"] || "";
-
-          const tanggapan =
-            item["Tanggapan"] || item["tanggapan"] || "";
-
-          const rating =
-            item["Rating"] || item["rating"] || "";
-
-
-          html += `
-            <tr>
-
-              <td>${index + 1}</td>
-
-              <td>${nama}</td>
-
-              <td>${noHp}</td>
-
-              <td>${tanggapan}</td>
-
-              <td class="rating">
-                ⭐ ${rating}/5
-              </td>
-
-            </tr>
-          `;
-
-        });
-
-
-        html += `
-            </tbody>
-          </table>
-        `;
-
-
-        tabel.innerHTML = html;
-
-
-      } catch (error) {
-
-        status.textContent =
-          "Gagal mengambil data dari server.";
-
-        tabel.innerHTML =
-          '<div class="kosong">Periksa koneksi atau deployment Apps Script.</div>';
-
+        body:
+          JSON.stringify(data)
       }
+    )
+    .then(function() {
 
-    }
+      hasil.style.display = "block";
 
+      hasil.className = "hasil";
 
-    // Ambil data saat halaman dibuka
-    ambilData();
+      hasil.innerHTML =
+        "<strong>Tanggapan berhasil dikirim.</strong><br>" +
+        "Token: " + token + "<br>" +
+        "Status: " + status;
 
-  </script>
+      document
+        .getElementById("tanggapan")
+        .value = "";
+
+    })
+    .catch(function(error) {
+
+      hasil.style.display = "block";
+
+      hasil.className = "hasil error";
+
+      hasil.innerHTML =
+        "Terjadi kesalahan saat mengirim tanggapan.";
+
+      console.error(error);
+
+    });
+
+  });
+
+</script>
 
 </body>
 </html>
