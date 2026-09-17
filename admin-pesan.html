@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Data Pesan - Admin</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f5ed;
+      color: #27382c;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .header {
+      background: #27382c;
+      color: white;
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      margin-bottom: 6px;
+    }
+
+    .header p {
+      opacity: 0.8;
+      font-size: 14px;
+    }
+
+    .kembali {
+      display: inline-block;
+      margin-top: 15px;
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .box {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      overflow-x: auto;
+    }
+
+    .refresh {
+      margin-bottom: 15px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      background: #27382c;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .status {
+      margin-bottom: 15px;
+      padding: 12px;
+      background: #f3f3ee;
+      border-radius: 8px;
+      text-align: center;
+      color: #666;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 950px;
+    }
+
+    th {
+      background: #27382c;
+      color: white;
+      padding: 12px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+      vertical-align: top;
+    }
+
+    tr:hover {
+      background: #fafaf6;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 5px 9px;
+      border-radius: 20px;
+      background: #fff3cd;
+      color: #856404;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .kosong {
+      text-align: center;
+      padding: 30px;
+      color: #777;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 12px;
+      }
+
+      .box {
+        padding: 12px;
+      }
+
+      .header h1 {
+        font-size: 21px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="header">
+
+      <h1>Data Pesan</h1>
+
+      <p>
+        Pesan dari masyarakat Desa Sungai Kelambu
+      </p>
+
+      <a href="dashboard.html" class="kembali">
+        ← Kembali ke Dashboard
+      </a>
+
+    </div>
+
+
+    <div class="box">
+
+      <button class="refresh" onclick="ambilData()">
+        🔄 Refresh Data
+      </button>
+
+      <div id="status" class="status">
+        Mengambil data...
+      </div>
+
+      <div id="tabel"></div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    const WEB_APP_URL =
+      "https://script.google.com/macros/s/AKfycbzz2BBMcvUVK8n-nMa-GVaCor0EFtIEMA3x-BrTFRZAvihe_GOnXpb_cQ7CGrRLLHNo/exec";
+
+
+    // Cek login admin
+    if (localStorage.getItem("adminLogin") !== "true") {
+      window.location.href = "admin.html";
+    }
+
+
+    async function ambilData() {
+
+      const status = document.getElementById("status");
+      const tabel = document.getElementById("tabel");
+
+      status.textContent = "Mengambil data...";
+      tabel.innerHTML = "";
+
+
+      try {
+
+        const response = await fetch(
+          WEB_APP_URL + "?action=pesan"
+        );
+
+        const hasil = await response.json();
+
+
+        if (hasil.status !== "success") {
+
+          status.textContent =
+            "Gagal mengambil data.";
+
+          return;
+
+        }
+
+
+        const data = hasil.data;
+
+
+        if (!data || data.length === 0) {
+
+          status.textContent =
+            "Belum ada data pesan.";
+
+          tabel.innerHTML =
+            '<div class="kosong">Belum ada pesan dari masyarakat.</div>';
+
+          return;
+
+        }
+
+
+        status.textContent =
+          "Total pesan: " + data.length;
+
+
+        let html = `
+          <table>
+
+            <thead>
+
+              <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>No. HP</th>
+                <th>Email</th>
+                <th>Subjek</th>
+                <th>Pesan</th>
+                <th>Status</th>
+              </tr>
+
+            </thead>
+
+            <tbody>
+        `;
+
+
+        data.forEach(function(item, index) {
+
+          const nama =
+            item["Nama"] || item["nama"] || "";
+
+          const noHp =
+            item["No HP"] || item["no_hp"] || "";
+
+          const email =
+            item["Email"] || item["email"] || "";
+
+          const subjek =
+            item["Subjek"] || item["subjek"] || "";
+
+          const pesan =
+            item["Pesan"] || item["pesan"] || "";
+
+          const statusPesan =
+            item["Status"] || "Belum Dibaca";
+
+
+          html += `
+            <tr>
+
+              <td>${index + 1}</td>
+
+              <td>${nama}</td>
+
+              <td>${noHp}</td>
+
+              <td>${email}</td>
+
+              <td>${subjek}</td>
+
+              <td>${pesan}</td>
+
+              <td>
+                <span class="badge">
+                  ${statusPesan}
+                </span>
+              </td>
+
+            </tr>
+          `;
+
+        });
+
+
+        html += `
+            </tbody>
+          </table>
+        `;
+
+
+        tabel.innerHTML = html;
+
+
+      } catch (error) {
+
+        status.textContent =
+          "Gagal mengambil data dari server.";
+
+        tabel.innerHTML =
+          '<div class="kosong">Periksa koneksi atau deployment Apps Script.</div>';
+
+      }
+
+    }
+
+
+    // Ambil data saat halaman dibuka
+    ambilData();
+
+  </script>
+
+</body>
+</html>
