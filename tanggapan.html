@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>Tanggapan - Desa Sungai Kelambu</title>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: #f8f5ed;
+  color: #27382c;
+}
+
+.container {
+  width: 92%;
+  max-width: 900px;
+  margin: auto;
+}
+
+header {
+  background: #27382c;
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+}
+
+header h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+}
+
+header p {
+  margin-top: 7px;
+  opacity: .85;
+}
+
+main {
+  padding: 35px 0 60px;
+}
+
+.card {
+  background: white;
+  border-radius: 17px;
+  padding: 22px;
+  margin-bottom: 17px;
+  box-shadow: 0 4px 15px rgba(39,56,44,.08);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.name {
+  font-weight: 700;
+}
+
+.date {
+  color: #858d87;
+  font-size: 13px;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #7a837c;
+  margin-bottom: 5px;
+}
+
+.text {
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+
+.reply {
+  background: #edf3ed;
+  border-radius: 12px;
+  padding: 15px;
+  margin-top: 12px;
+}
+
+.loading,
+.empty {
+  text-align: center;
+  padding: 35px;
+  color: #7e877f;
+}
+
+.refresh {
+  display: block;
+  margin: 0 auto 25px;
+  border: none;
+  background: #27382c;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #7d867f;
+  font-size: 13px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="container">
+
+<h1>Tanggapan Desa</h1>
+
+<p>
+Tanggapan atas pengaduan masyarakat
+</p>
+
+</div>
+
+</header>
+
+
+<main class="container">
+
+
+<button
+  class="refresh"
+  onclick="muatTanggapan()"
+>
+↻ Muat Tanggapan
+</button>
+
+
+<div id="daftar">
+
+<div class="loading">
+Memuat tanggapan...
+</div>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+© 2026 Desa Sungai Kelambu
+
+</footer>
+
+
+<script>
+
+
+const WEB_APP_URL =
+"https://script.google.com/macros/s/AKfycbzz2BBMcvUVK8n-Ma-NcC5vY3eYfLwG3j7XxqPjQwLQ0w2FJqX6Z7jLxQ/exec";
+
+
+const daftar =
+document.getElementById("daftar");
+
+
+function aman(text) {
+
+  return String(text ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function kolom(obj,names) {
+
+  const keys =
+    Object.keys(obj);
+
+
+  for (
+    const wanted of names
+  ) {
+
+    const found =
+      keys.find(key =>
+        key.toLowerCase().trim() ===
+        wanted.toLowerCase().trim()
+      );
+
+
+    if (found !== undefined) {
+      return obj[found];
+    }
+
+  }
+
+
+  for (
+    const key of keys
+  ) {
+
+    for (
+      const wanted of names
+    ) {
+
+      if (
+        key.toLowerCase()
+          .includes(
+            wanted.toLowerCase()
+          )
+      ) {
+
+        return obj[key];
+
+      }
+
+    }
+
+  }
+
+
+  return "";
+
+}
+
+
+async function muatTanggapan() {
+
+  daftar.innerHTML = `
+    <div class="loading">
+      Memuat tanggapan...
+    </div>
+  `;
+
+
+  try {
+
+    const response =
+      await fetch(
+        WEB_APP_URL +
+        "?action=tanggapan"
+      );
+
+
+    const result =
+      await response.json();
+
+
+    if (
+      result.success === false
+    ) {
+
+      throw new Error(
+        result.error ||
+        "Gagal mengambil data."
+      );
+
+    }
+
+
+    const data =
+      result.data || [];
+
+
+    if (!data.length) {
+
+      daftar.innerHTML = `
+        <div class="empty">
+          Belum ada tanggapan dari admin.
+        </div>
+      `;
+
+      return;
+
+    }
+
+
+    daftar.innerHTML =
+      data.map(item => {
+
+        const nama =
+          kolom(item,[
+            "nama",
+            "nama lengkap"
+          ]);
+
+
+        const tanggal =
+          kolom(item,[
+            "tanggal",
+            "waktu",
+            "timestamp",
+            "date"
+          ]);
+
+
+        const pengaduan =
+          kolom(item,[
+            "pengaduan",
+            "isi pengaduan",
+            "ajuan"
+          ]);
+
+
+        const tanggapan =
+          kolom(item,[
+            "tanggapan",
+            "isi tanggapan",
+            "balasan",
+            "jawaban",
+            "respon"
+          ]);
+
+
+        return `
+
+          <div class="card">
+
+            <div class="top">
+
+              <div class="name">
+                ${aman(
+                  nama ||
+                  "Masyarakat"
+                )}
+              </div>
+
+              <div class="date">
+                ${aman(tanggal)}
+              </div>
+
+            </div>
+
+
+            <div class="label">
+              Pengaduan
+            </div>
+
+            <div class="text">
+              ${aman(
+                pengaduan || "-"
+              )}
+            </div>
+
+
+            <div class="reply">
+
+              <div class="label">
+                Tanggapan Admin
+              </div>
+
+              <div class="text">
+                ${aman(
+                  tanggapan || "-"
+                )}
+              </div>
+
+            </div>
+
+          </div>
+
+        `;
+
+      }).join("");
+
+
+  } catch(error) {
+
+    console.error(error);
+
+    daftar.innerHTML = `
+      <div class="empty">
+        Tanggapan belum dapat dimuat.
+      </div>
+    `;
+
+  }
+
+}
+
+
+muatTanggapan();
+
+</script>
+
+</body>
+
+</html>
