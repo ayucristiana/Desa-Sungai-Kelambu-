@@ -69,6 +69,7 @@
 
     .welcome p {
       color: #666;
+      line-height: 1.6;
     }
 
     .cards {
@@ -96,6 +97,7 @@
     .card p {
       color: #777;
       font-size: 14px;
+      line-height: 1.6;
       margin-bottom: 15px;
     }
 
@@ -188,7 +190,8 @@
       <h2>Selamat Datang, Admin</h2>
 
       <p>
-        Kelola data dan pelayanan Desa Sungai Kelambu melalui halaman admin.
+        Kelola pengaduan, tanggapan, pesan, dan pelayanan
+        Desa Sungai Kelambu melalui halaman admin.
       </p>
 
     </section>
@@ -196,21 +199,27 @@
 
     <section class="cards">
 
+      <!-- PENGADUAN -->
+
       <div class="card">
 
-        <div class="icon">📄</div>
+        <div class="icon">📋</div>
 
-        <h3>Ajuan</h3>
+        <h3>Pengaduan</h3>
 
         <p>
-          Melihat data ajuan yang dikirim oleh masyarakat.
+          Melihat pengaduan yang dikirim oleh masyarakat
+          melalui website desa.
         </p>
 
         <a href="admin-ajuan.html" class="btn">
-  Lihat Ajuan
-</a>
+          Lihat Pengaduan
+        </a>
+
       </div>
 
+
+      <!-- TANGGAPAN -->
 
       <div class="card">
 
@@ -219,15 +228,18 @@
         <h3>Tanggapan</h3>
 
         <p>
-          Melihat tanggapan dan penilaian pelayanan desa.
+          Melihat seluruh tanggapan atau balasan yang
+          diberikan oleh pihak desa kepada masyarakat.
         </p>
 
         <a href="admin-tanggapan.html" class="btn">
-  Lihat Tanggapan
+          Lihat Tanggapan
         </a>
 
       </div>
 
+
+      <!-- PESAN -->
 
       <div class="card">
 
@@ -236,20 +248,36 @@
         <h3>Pesan</h3>
 
         <p>
-          Melihat pesan yang dikirim melalui website.
+          Melihat pesan atau pertanyaan yang dikirim
+          masyarakat melalui website desa.
         </p>
 
         <a href="admin-pesan.html" class="btn">
-  Lihat Pesan
-</a>
+          Lihat Pesan
+        </a>
+
       </div>
 
     </section>
 
 
+    <!-- MENU ADMIN -->
+
     <section class="menu">
 
       <h2>Menu Admin</h2>
+
+      <a href="admin-ajuan.html">
+        📋 Kelola Pengaduan Masyarakat
+      </a>
+
+      <a href="admin-tanggapan.html">
+        💬 Kelola Tanggapan
+      </a>
+
+      <a href="admin-pesan.html">
+        ✉️ Kelola Pesan Masyarakat
+      </a>
 
       <a href="#">
         👥 Kelola Data Penduduk
@@ -288,6 +316,7 @@
     }
 
 
+    // Fungsi logout
     function logout() {
 
       localStorage.removeItem("adminLogin");
