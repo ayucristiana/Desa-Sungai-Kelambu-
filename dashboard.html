@@ -12,6 +12,12 @@
 
 <title>Dashboard Admin - Desa Sungai Kelambu</title>
 
+<!-- FAVICON -->
+<link
+  rel="icon"
+  href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2327382c'/%3E%3Cpath d='M18 48 50 20l32 28v32H62V60H38v20H18z' fill='%23f8f5ed'/%3E%3Cpath d='M50 20v12M25 46h50' stroke='%23c8a96b' stroke-width='5' fill='none'/%3E%3C/svg%3E"
+>
+
 <link
   href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
   rel="stylesheet"
@@ -274,6 +280,11 @@ main {
   color: white;
 }
 
+.send:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
 footer {
   text-align: center;
   padding: 25px;
@@ -312,7 +323,6 @@ footer {
 
 <body>
 
-
 <header>
 
 <div class="container header-inner">
@@ -331,7 +341,6 @@ Keluar
 
 
 <main class="container">
-
 
 <div class="welcome">
 
@@ -526,7 +535,6 @@ Kirim Tanggapan
 
 <script>
 
-
 /* =========================
    CEK LOGIN
 ========================= */
@@ -541,11 +549,11 @@ if (
 
 
 /* =========================
-   WEB APP
+   WEB APP BARU
 ========================= */
 
 const WEB_APP_URL =
-"https://script.google.com/macros/s/AKfycbzz2BBMcvUVK8n-Ma-NcC5vY3eYfLwG3j7XxqPjQwLQ0w2FJqX6Z7jLxQ/exec";
+"https://script.google.com/macros/s/AKfycbxNjSokYlcC1fl1UUhzwTa3hEUOQMwodbQtGY17YwTA_dWNMzlpxwANUaaS9GvGpnQqwQ/exec";
 
 
 let pengaduanDipilih = null;
@@ -1098,7 +1106,8 @@ async function muatData() {
     console.error(error);
 
     status(
-      "Gagal mengambil data. Pastikan Web App Apps Script sudah diperbarui.",
+      "Gagal mengambil data: " +
+      error.message,
       true
     );
 
@@ -1236,6 +1245,15 @@ async function kirimTanggapan() {
       );
 
 
+    if (!response.ok) {
+
+      throw new Error(
+        "HTTP " + response.status
+      );
+
+    }
+
+
     const result =
       await response.json();
 
@@ -1246,7 +1264,8 @@ async function kirimTanggapan() {
 
       throw new Error(
         result.error ||
-        result.message
+        result.message ||
+        "Tanggapan gagal dikirim"
       );
 
     }
@@ -1308,4 +1327,4 @@ muatData();
 </script>
 
 </body>
-</html>
+                                  </html>
