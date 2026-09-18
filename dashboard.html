@@ -1,637 +1,1309 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
 <title>Dashboard Admin - Desa Sungai Kelambu</title>
 
+<link
+  href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+  rel="stylesheet"
+>
+
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body{
-  font-family:Arial,sans-serif;
-  background:#f8f5ed;
-  color:#27382c;
+body {
+  font-family: "DM Sans", sans-serif;
+  background: #f8f5ed;
+  color: #27382c;
 }
 
-.header{
-  background:#27382c;
-  color:white;
-  padding:18px 20px;
+.container {
+  width: 92%;
+  max-width: 1200px;
+  margin: auto;
 }
 
-.header-inner{
-  max-width:1100px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
+header {
+  background: #27382c;
+  color: white;
+  padding: 20px 0;
 }
 
-.header h1{
-  font-size:21px;
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.header p{
-  font-size:13px;
-  opacity:.8;
-  margin-top:4px;
+.logo {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
 }
 
-.logout{
-  border:none;
-  background:white;
-  color:#27382c;
-  padding:9px 14px;
-  border-radius:7px;
-  font-weight:bold;
-  cursor:pointer;
+.logout {
+  border: none;
+  background: #f8f5ed;
+  color: #27382c;
+  padding: 10px 15px;
+  border-radius: 9px;
+  font-weight: 700;
+  cursor: pointer;
 }
 
-.container{
-  max-width:1100px;
-  margin:25px auto;
-  padding:0 18px;
+main {
+  padding: 35px 0 60px;
 }
 
-.welcome{
-  background:white;
-  padding:22px;
-  border-radius:15px;
-  margin-bottom:20px;
-  box-shadow:0 4px 15px rgba(0,0,0,.06);
+.welcome {
+  margin-bottom: 25px;
 }
 
-.welcome h2{
-  margin-bottom:7px;
+.welcome h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  margin-bottom: 6px;
 }
 
-.welcome p{
-  color:#666;
-  line-height:1.6;
+.welcome p {
+  color: #707970;
 }
 
-/* STATISTIK */
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
-  margin-bottom:25px;
+.status {
+  display: none;
+  padding: 13px 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background: #e4eee5;
 }
 
-.stat{
-  background:white;
-  padding:20px;
-  border-radius:15px;
-  box-shadow:0 4px 15px rgba(0,0,0,.06);
+.status.error {
+  background: #f5dfdd;
+  color: #8c3932;
 }
 
-.stat-icon{
-  font-size:28px;
-  margin-bottom:8px;
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 30px;
 }
 
-.stat h3{
-  font-size:16px;
-  margin-bottom:8px;
+.card {
+  background: white;
+  padding: 23px;
+  border-radius: 17px;
+  box-shadow: 0 4px 15px rgba(39,56,44,.08);
 }
 
-.stat-number{
-  font-size:28px;
-  font-weight:bold;
+.card small {
+  color: #7a837c;
 }
 
-/* SECTION */
-
-.section{
-  background:white;
-  padding:22px;
-  border-radius:15px;
-  margin-bottom:20px;
-  box-shadow:0 4px 15px rgba(0,0,0,.06);
+.number {
+  font-size: 34px;
+  font-weight: 700;
+  margin-top: 7px;
 }
 
-.section-title{
-  margin-bottom:16px;
-  font-size:20px;
+.section {
+  background: white;
+  padding: 24px;
+  border-radius: 17px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(39,56,44,.08);
 }
 
-/* DATA */
-
-.data-card{
-  border:1px solid #e5e5df;
-  border-radius:12px;
-  padding:16px;
-  margin-bottom:12px;
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  gap: 10px;
 }
 
-.data-card:last-child{
-  margin-bottom:0;
+.section h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 23px;
 }
 
-.data-top{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  margin-bottom:10px;
+.refresh {
+  border: none;
+  background: #27382c;
+  color: white;
+  padding: 9px 14px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-.name{
-  font-weight:bold;
+.item {
+  border: 1px solid #e3e7e3;
+  border-radius: 13px;
+  padding: 17px;
+  margin-bottom: 12px;
 }
 
-.date{
-  font-size:12px;
-  color:#888;
+.item:last-child {
+  margin-bottom: 0;
 }
 
-.status{
-  display:inline-block;
-  background:#edf3ed;
-  color:#3f6548;
-  padding:6px 9px;
-  border-radius:20px;
-  font-size:11px;
-  font-weight:bold;
+.item-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
 }
 
-.label{
-  font-size:12px;
-  color:#888;
-  margin-bottom:4px;
+.name {
+  font-weight: 700;
 }
 
-.text{
-  line-height:1.6;
-  color:#444;
+.date {
+  font-size: 13px;
+  color: #858d87;
 }
 
-.response{
-  background:#f5f5ef;
-  padding:12px;
-  border-radius:8px;
-  margin-top:12px;
+.label {
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #7a837c;
+  margin-bottom: 5px;
 }
 
-/* BUTTON */
-
-.btn{
-  border:none;
-  background:#27382c;
-  color:white;
-  padding:10px 14px;
-  border-radius:8px;
-  font-weight:bold;
-  cursor:pointer;
-  margin-top:12px;
+.text {
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
-.btn:hover{
-  opacity:.9;
+.reply-btn {
+  margin-top: 15px;
+  border: none;
+  background: #27382c;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: 600;
 }
 
-.empty{
-  text-align:center;
-  color:#777;
-  padding:20px;
+.empty {
+  text-align: center;
+  padding: 30px;
+  color: #89918a;
 }
 
-/* MOBILE */
+.loading {
+  text-align: center;
+  padding: 25px;
+  color: #727b74;
+}
 
-@media(max-width:750px){
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
 
-  .header-inner{
-    align-items:flex-start;
+.modal-box {
+  background: white;
+  width: 100%;
+  max-width: 500px;
+  padding: 25px;
+  border-radius: 17px;
+}
+
+.modal-box h2 {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 15px;
+}
+
+.modal-box textarea {
+  width: 100%;
+  min-height: 150px;
+  resize: vertical;
+  border: 1px solid #d7ddd7;
+  border-radius: 10px;
+  padding: 12px;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.modal-buttons button {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cancel {
+  background: #e9ece9;
+}
+
+.send {
+  background: #27382c;
+  color: white;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #7d867f;
+  font-size: 13px;
+}
+
+@media(max-width:750px) {
+
+  .cards {
+    grid-template-columns: 1fr;
   }
 
-  .header h1{
-    font-size:18px;
+  .header-inner {
+    gap: 10px;
   }
 
-  .logout{
-    font-size:12px;
-    padding:8px 10px;
+  .logo {
+    font-size: 19px;
   }
 
-  .stats{
-    grid-template-columns:1fr;
+  .welcome h1 {
+    font-size: 27px;
   }
 
-  .data-top{
-    flex-direction:column;
+  .section {
+    padding: 18px;
   }
 
 }
+
 </style>
+
 </head>
+
 
 <body>
 
-<header class="header">
 
-  <div class="header-inner">
+<header>
 
-    <div>
-      <h1>Dashboard Admin</h1>
-      <p>Desa Sungai Kelambu</p>
-    </div>
+<div class="container header-inner">
 
-    <button class="logout" onclick="logout()">
-      Keluar
-    </button>
+<div class="logo">
+Admin Desa Sungai Kelambu
+</div>
 
-  </div>
+<button class="logout" onclick="logout()">
+Keluar
+</button>
+
+</div>
 
 </header>
 
 
 <main class="container">
 
-  <!-- WELCOME -->
 
-  <section class="welcome">
+<div class="welcome">
 
-    <h2>Selamat Datang, Admin</h2>
+<h1>Dashboard Admin</h1>
 
-    <p>
-      Kelola pengaduan, tanggapan, dan pesan masyarakat
-      Desa Sungai Kelambu melalui satu halaman.
-    </p>
+<p>
+Kelola Pengaduan, Tanggapan, dan Pesan masyarakat.
+</p>
 
-  </section>
+</div>
 
 
-  <!-- STATISTIK -->
-
-  <section class="stats">
-
-    <div class="stat">
-
-      <div class="stat-icon">📋</div>
-
-      <h3>Pengaduan</h3>
-
-      <div class="stat-number" id="jumlahPengaduan">
-        0
-      </div>
-
-    </div>
+<div id="status" class="status"></div>
 
 
-    <div class="stat">
+<div class="cards">
 
-      <div class="stat-icon">💬</div>
+<div class="card">
 
-      <h3>Tanggapan</h3>
+<small>Total Pengaduan</small>
 
-      <div class="stat-number" id="jumlahTanggapan">
-        0
-      </div>
+<div
+  class="number"
+  id="jumlahPengaduan"
+>
+0
+</div>
 
-    </div>
-
-
-    <div class="stat">
-
-      <div class="stat-icon">✉️</div>
-
-      <h3>Pesan</h3>
-
-      <div class="stat-number" id="jumlahPesan">
-        0
-      </div>
-
-    </div>
-
-  </section>
+</div>
 
 
-  <!-- PENGADUAN -->
+<div class="card">
 
-  <section class="section">
+<small>Total Tanggapan</small>
 
-    <h2 class="section-title">
-      📋 Pengaduan Masyarakat
-    </h2>
+<div
+  class="number"
+  id="jumlahTanggapan"
+>
+0
+</div>
 
-    <div id="pengaduanList">
-
-      <div class="empty">
-        Data pengaduan akan tampil di sini.
-      </div>
-
-    </div>
-
-  </section>
+</div>
 
 
-  <!-- TANGGAPAN -->
+<div class="card">
 
-  <section class="section">
+<small>Total Pesan</small>
 
-    <h2 class="section-title">
-      💬 Tanggapan
-    </h2>
+<div
+  class="number"
+  id="jumlahPesan"
+>
+0
+</div>
 
-    <div id="tanggapanList">
+</div>
 
-      <div class="empty">
-        Data tanggapan akan tampil di sini.
-      </div>
-
-    </div>
-
-  </section>
+</div>
 
 
-  <!-- PESAN -->
+<!-- PENGADUAN -->
 
-  <section class="section">
+<section class="section">
 
-    <h2 class="section-title">
-      ✉️ Pesan Masyarakat
-    </h2>
+<div class="section-header">
 
-    <div id="pesanList">
+<h2>Pengaduan Masyarakat</h2>
 
-      <div class="empty">
-        Data pesan akan tampil di sini.
-      </div>
+<button
+  class="refresh"
+  onclick="muatData()"
+>
+↻ Muat ulang
+</button>
 
-    </div>
+</div>
 
-  </section>
+
+<div id="daftarPengaduan">
+
+<div class="loading">
+Memuat pengaduan...
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TANGGAPAN -->
+
+<section class="section">
+
+<div class="section-header">
+
+<h2>Tanggapan</h2>
+
+</div>
+
+
+<div id="daftarTanggapan">
+
+<div class="loading">
+Memuat tanggapan...
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PESAN -->
+
+<section class="section">
+
+<div class="section-header">
+
+<h2>Pesan Masyarakat</h2>
+
+</div>
+
+
+<div id="daftarPesan">
+
+<div class="loading">
+Memuat pesan...
+</div>
+
+</div>
+
+</section>
 
 
 </main>
 
 
+<footer>
+
+© 2026 Desa Sungai Kelambu
+
+</footer>
+
+
+<!-- MODAL TANGGAPAN -->
+
+<div
+  class="modal"
+  id="modal"
+>
+
+<div class="modal-box">
+
+<h2>Beri Tanggapan</h2>
+
+<div
+  id="infoPengaduan"
+  style="margin-bottom:15px; line-height:1.6;"
+>
+</div>
+
+
+<textarea
+  id="isiTanggapan"
+  placeholder="Tulis tanggapan untuk masyarakat..."
+></textarea>
+
+
+<div class="modal-buttons">
+
+<button
+  class="cancel"
+  onclick="tutupModal()"
+>
+Batal
+</button>
+
+
+<button
+  class="send"
+  onclick="kirimTanggapan()"
+>
+Kirim Tanggapan
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
 <script>
 
-/* CEK LOGIN */
 
-if(localStorage.getItem("adminLogin") !== "true"){
-  window.location.href="admin.html";
-}
+/* =========================
+   CEK LOGIN
+========================= */
 
+if (
+  localStorage.getItem("adminLogin") !== "true"
+) {
 
-/* LOGOUT */
-
-function logout(){
-
-  localStorage.removeItem("adminLogin");
-
-  window.location.href="admin.html";
+  window.location.href = "admin.html";
 
 }
 
 
-/*
-  DATA CONTOH
+/* =========================
+   WEB APP
+========================= */
 
-  Nanti bagian ini kita sambungkan
-  ke Google Apps Script.
-*/
+const WEB_APP_URL =
+"https://script.google.com/macros/s/AKfycbzz2BBMcvUVK8n-Ma-NcC5vY3eYfLwG3j7XxqPjQwLQ0w2FJqX6Z7jLxQ/exec";
 
 
-const pengaduanContoh = [
-  {
-    nama:"Ayu Cristiana",
-    tanggal:"18 September 2026",
-    isi:"Jalan di sekitar desa perlu diperbaiki."
-  },
-  {
-    nama:"Safitri",
-    tanggal:"18 September 2026",
-    isi:"Lampu jalan di dekat sekolah mati."
+let pengaduanDipilih = null;
+
+
+/* =========================
+   ELEMENT
+========================= */
+
+const statusBox =
+document.getElementById("status");
+
+const daftarPengaduan =
+document.getElementById("daftarPengaduan");
+
+const daftarTanggapan =
+document.getElementById("daftarTanggapan");
+
+const daftarPesan =
+document.getElementById("daftarPesan");
+
+
+/* =========================
+   STATUS
+========================= */
+
+function status(text, error=false) {
+
+  statusBox.textContent = text;
+
+  statusBox.className =
+    error
+    ? "status error"
+    : "status";
+
+  statusBox.style.display = "block";
+
+  if (!error) {
+
+    setTimeout(() => {
+
+      statusBox.style.display = "none";
+
+    }, 3000);
+
   }
-];
+
+}
 
 
-const tanggapanContoh = [
-  {
-    nama:"Ayu Cristiana",
-    tanggal:"18 September 2026",
-    pengaduan:"Jalan di sekitar desa perlu diperbaiki.",
-    tanggapan:"Terima kasih atas pengaduannya. Pengaduan akan kami sampaikan kepada pihak terkait."
+/* =========================
+   ESCAPE
+========================= */
+
+function aman(text) {
+
+  return String(text ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================
+   AMBIL DATA
+========================= */
+
+async function ambil(action) {
+
+  const response =
+    await fetch(
+      WEB_APP_URL +
+      "?action=" +
+      encodeURIComponent(action)
+    );
+
+
+  if (!response.ok) {
+
+    throw new Error(
+      "HTTP " + response.status
+    );
+
   }
-];
 
 
-const pesanContoh = [
-  {
-    nama:"Nuraini",
-    tanggal:"18 September 2026",
-    isi:"Apakah kantor desa buka hari Sabtu?"
+  const result =
+    await response.json();
+
+
+  if (
+    result.success === false
+  ) {
+
+    throw new Error(
+      result.error ||
+      result.message ||
+      "Gagal mengambil data"
+    );
+
   }
-];
 
 
-/* TAMPILKAN PENGADUAN */
+  return result.data || [];
 
-function tampilkanPengaduan(){
+}
 
-  const box=document.getElementById("pengaduanList");
 
-  document.getElementById("jumlahPengaduan").innerText =
-    pengaduanContoh.length;
+/* =========================
+   CARI KOLOM
+========================= */
 
-  box.innerHTML="";
+function kolom(obj, names) {
 
-  pengaduanContoh.forEach((data,index)=>{
+  const keys =
+    Object.keys(obj);
 
-    box.innerHTML += `
 
-      <div class="data-card">
+  for (
+    const wanted of names
+  ) {
 
-        <div class="data-top">
+    const found =
+      keys.find(key =>
+        key
+          .toLowerCase()
+          .trim() ===
+        wanted
+          .toLowerCase()
+          .trim()
+      );
 
-          <div>
+
+    if (found !== undefined) {
+
+      return obj[found];
+
+    }
+
+  }
+
+
+  for (
+    const key of keys
+  ) {
+
+    for (
+      const wanted of names
+    ) {
+
+      if (
+        key
+          .toLowerCase()
+          .includes(
+            wanted.toLowerCase()
+          )
+      ) {
+
+        return obj[key];
+
+      }
+
+    }
+
+  }
+
+
+  return "";
+
+}
+
+
+/* =========================
+   PENGADUAN
+========================= */
+
+function tampilPengaduan(data) {
+
+  document.getElementById(
+    "jumlahPengaduan"
+  ).textContent = data.length;
+
+
+  if (!data.length) {
+
+    daftarPengaduan.innerHTML = `
+      <div class="empty">
+        Belum ada pengaduan.
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  daftarPengaduan.innerHTML =
+    data.map((item,index) => {
+
+      const nama =
+        kolom(item,[
+          "nama",
+          "nama lengkap",
+          "nama pengadu"
+        ]);
+
+
+      const tanggal =
+        kolom(item,[
+          "tanggal",
+          "waktu",
+          "timestamp",
+          "date"
+        ]);
+
+
+      const isi =
+        kolom(item,[
+          "pengaduan",
+          "isi",
+          "ajuan",
+          "keluhan",
+          "keterangan"
+        ]);
+
+
+      return `
+
+        <div class="item">
+
+          <div class="item-top">
+
             <div class="name">
-              ${data.nama}
+              ${aman(
+                nama ||
+                "Masyarakat"
+              )}
             </div>
 
             <div class="date">
-              ${data.tanggal}
+              ${aman(tanggal)}
             </div>
+
           </div>
 
-          <div class="status">
+
+          <div class="label">
             Pengaduan
           </div>
 
+          <div class="text">
+            ${aman(
+              isi ||
+              "Tidak ada isi."
+            )}
+          </div>
+
+
+          <button
+            class="reply-btn"
+            onclick='bukaTanggapan(${JSON.stringify({
+              nama:nama,
+              pengaduan:isi
+            })})'
+          >
+            Beri Tanggapan
+          </button>
+
         </div>
 
-        <div class="label">
-          Isi Pengaduan
-        </div>
+      `;
 
-        <div class="text">
-          ${data.isi}
-        </div>
-
-        <button
-          class="btn"
-          onclick="beriTanggapan(${index})"
-        >
-          💬 Beri Tanggapan
-        </button>
-
-      </div>
-
-    `;
-
-  });
+    }).join("");
 
 }
 
 
-/* TAMPILKAN TANGGAPAN */
+/* =========================
+   TANGGAPAN
+========================= */
 
-function tampilkanTanggapan(){
+function tampilTanggapan(data) {
 
-  const box=document.getElementById("tanggapanList");
+  document.getElementById(
+    "jumlahTanggapan"
+  ).textContent = data.length;
 
-  document.getElementById("jumlahTanggapan").innerText =
-    tanggapanContoh.length;
 
-  box.innerHTML="";
+  if (!data.length) {
 
-  tanggapanContoh.forEach(data=>{
+    daftarTanggapan.innerHTML = `
+      <div class="empty">
+        Belum ada tanggapan.
+      </div>
+    `;
 
-    box.innerHTML += `
+    return;
 
-      <div class="data-card">
+  }
 
-        <div class="data-top">
 
-          <div>
+  daftarTanggapan.innerHTML =
+    data.map(item => {
+
+      const nama =
+        kolom(item,[
+          "nama",
+          "nama lengkap"
+        ]);
+
+
+      const tanggal =
+        kolom(item,[
+          "tanggal",
+          "waktu",
+          "timestamp",
+          "date"
+        ]);
+
+
+      const pengaduan =
+        kolom(item,[
+          "pengaduan",
+          "isi pengaduan",
+          "ajuan"
+        ]);
+
+
+      const tanggapan =
+        kolom(item,[
+          "tanggapan",
+          "isi tanggapan",
+          "balasan",
+          "jawaban",
+          "respon"
+        ]);
+
+
+      return `
+
+        <div class="item">
+
+          <div class="item-top">
+
             <div class="name">
-              ${data.nama}
+              ${aman(
+                nama ||
+                "Masyarakat"
+              )}
             </div>
 
             <div class="date">
-              ${data.tanggal}
+              ${aman(tanggal)}
             </div>
+
           </div>
 
-          <div class="status">
-            Sudah Ditanggapi
-          </div>
-
-        </div>
-
-        <div class="label">
-          Pengaduan
-        </div>
-
-        <div class="text">
-          ${data.pengaduan}
-        </div>
-
-        <div class="response">
 
           <div class="label">
-            Tanggapan Desa
+            Pengaduan
+          </div>
+
+          <div
+            class="text"
+            style="margin-bottom:12px"
+          >
+            ${aman(
+              pengaduan ||
+              "-"
+            )}
+          </div>
+
+
+          <div class="label">
+            Tanggapan Admin
           </div>
 
           <div class="text">
-            ${data.tanggapan}
+            ${aman(
+              tanggapan ||
+              "-"
+            )}
           </div>
 
         </div>
 
-      </div>
+      `;
 
-    `;
-
-  });
+    }).join("");
 
 }
 
 
-/* TAMPILKAN PESAN */
+/* =========================
+   PESAN
+========================= */
 
-function tampilkanPesan(){
+function tampilPesan(data) {
 
-  const box=document.getElementById("pesanList");
+  document.getElementById(
+    "jumlahPesan"
+  ).textContent = data.length;
 
-  document.getElementById("jumlahPesan").innerText =
-    pesanContoh.length;
 
-  box.innerHTML="";
+  if (!data.length) {
 
-  pesanContoh.forEach(data=>{
+    daftarPesan.innerHTML = `
+      <div class="empty">
+        Belum ada pesan.
+      </div>
+    `;
 
-    box.innerHTML += `
+    return;
 
-      <div class="data-card">
+  }
 
-        <div class="data-top">
 
-          <div>
+  daftarPesan.innerHTML =
+    data.map(item => {
+
+      const nama =
+        kolom(item,[
+          "nama",
+          "nama lengkap",
+          "pengirim"
+        ]);
+
+
+      const tanggal =
+        kolom(item,[
+          "tanggal",
+          "waktu",
+          "timestamp",
+          "date"
+        ]);
+
+
+      const isi =
+        kolom(item,[
+          "pesan",
+          "isi",
+          "message",
+          "keterangan"
+        ]);
+
+
+      return `
+
+        <div class="item">
+
+          <div class="item-top">
+
             <div class="name">
-              ${data.nama}
+              ${aman(
+                nama ||
+                "Masyarakat"
+              )}
             </div>
 
             <div class="date">
-              ${data.tanggal}
+              ${aman(tanggal)}
             </div>
+
           </div>
 
-          <div class="status">
+
+          <div class="label">
             Pesan
           </div>
 
+          <div class="text">
+            ${aman(
+              isi ||
+              "-"
+            )}
+          </div>
+
         </div>
 
-        <div class="text">
-          ${data.isi}
-        </div>
+      `;
 
-      </div>
-
-    `;
-
-  });
+    }).join("");
 
 }
 
 
-/* BERI TANGGAPAN */
+/* =========================
+   MUAT SEMUA
+========================= */
 
-function beriTanggapan(index){
+async function muatData() {
 
-  const data = pengaduanContoh[index];
-
-  const jawaban = prompt(
-    "Tulis tanggapan untuk " + data.nama + ":"
+  status(
+    "Memuat data dari Google Sheet..."
   );
 
-  if(!jawaban){
+
+  daftarPengaduan.innerHTML =
+    `<div class="loading">
+      Memuat pengaduan...
+    </div>`;
+
+
+  daftarTanggapan.innerHTML =
+    `<div class="loading">
+      Memuat tanggapan...
+    </div>`;
+
+
+  daftarPesan.innerHTML =
+    `<div class="loading">
+      Memuat pesan...
+    </div>`;
+
+
+  try {
+
+    const [
+      pengaduan,
+      tanggapan,
+      pesan
+    ] = await Promise.all([
+
+      ambil("ajuan"),
+
+      ambil("tanggapan"),
+
+      ambil("pesan")
+
+    ]);
+
+
+    tampilPengaduan(pengaduan);
+
+    tampilTanggapan(tanggapan);
+
+    tampilPesan(pesan);
+
+
+    status(
+      "Data berhasil dimuat."
+    );
+
+
+  } catch(error) {
+
+    console.error(error);
+
+    status(
+      "Gagal mengambil data. Pastikan Web App Apps Script sudah diperbarui.",
+      true
+    );
+
+  }
+
+}
+
+
+/* =========================
+   BUKA MODAL
+========================= */
+
+function bukaTanggapan(data) {
+
+  pengaduanDipilih = data;
+
+
+  document.getElementById(
+    "infoPengaduan"
+  ).innerHTML = `
+
+    <b>
+      ${aman(
+        data.nama ||
+        "Masyarakat"
+      )}
+    </b>
+
+    <br><br>
+
+    ${aman(
+      data.pengaduan ||
+      "-"
+    )}
+
+  `;
+
+
+  document.getElementById(
+    "isiTanggapan"
+  ).value = "";
+
+
+  document.getElementById(
+    "modal"
+  ).style.display = "flex";
+
+}
+
+
+/* =========================
+   TUTUP MODAL
+========================= */
+
+function tutupModal() {
+
+  document.getElementById(
+    "modal"
+  ).style.display = "none";
+
+  pengaduanDipilih = null;
+
+}
+
+
+/* =========================
+   KIRIM TANGGAPAN
+========================= */
+
+async function kirimTanggapan() {
+
+  if (!pengaduanDipilih) {
     return;
   }
 
-  alert(
-    "Tanggapan siap dikirim.\n\n" +
-    "Nanti bagian ini kita hubungkan ke Google Sheets."
-  );
+
+  const isi =
+    document.getElementById(
+      "isiTanggapan"
+    ).value.trim();
+
+
+  if (!isi) {
+
+    alert(
+      "Tulis tanggapan terlebih dahulu."
+    );
+
+    return;
+
+  }
+
+
+  const tombol =
+    document.querySelector(
+      ".send"
+    );
+
+
+  tombol.disabled = true;
+
+  tombol.textContent =
+    "Mengirim...";
+
+
+  try {
+
+    const response =
+      await fetch(
+        WEB_APP_URL,
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type":
+              "text/plain;charset=utf-8"
+          },
+
+          body: JSON.stringify({
+
+            action: "tanggapan",
+
+            nama:
+              pengaduanDipilih.nama,
+
+            pengaduan:
+              pengaduanDipilih.pengaduan,
+
+            tanggapan:
+              isi
+
+          })
+
+        }
+      );
+
+
+    const result =
+      await response.json();
+
+
+    if (
+      result.success === false
+    ) {
+
+      throw new Error(
+        result.error ||
+        result.message
+      );
+
+    }
+
+
+    tutupModal();
+
+
+    alert(
+      "Tanggapan berhasil dikirim."
+    );
+
+
+    await muatData();
+
+
+  } catch(error) {
+
+    console.error(error);
+
+    alert(
+      "Tanggapan gagal dikirim: " +
+      error.message
+    );
+
+  }
+
+
+  tombol.disabled = false;
+
+  tombol.textContent =
+    "Kirim Tanggapan";
 
 }
 
 
-/* JALANKAN */
+/* =========================
+   LOGOUT
+========================= */
 
-tampilkanPengaduan();
-tampilkanTanggapan();
-tampilkanPesan();
+function logout() {
+
+  localStorage.removeItem(
+    "adminLogin"
+  );
+
+  window.location.href =
+    "admin.html";
+
+}
+
+
+/* =========================
+   MULAI
+========================= */
+
+muatData();
 
 </script>
 
